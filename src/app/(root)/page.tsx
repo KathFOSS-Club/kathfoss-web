@@ -20,7 +20,7 @@ export default async function Home() {
       <Header />
 
       {/* Hero Section */}
-      <HeroSection  />
+      <HeroSection />
 
       {/* Event Highlights */}
       <EventsHighlight />
