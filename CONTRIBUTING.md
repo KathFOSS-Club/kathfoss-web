@@ -14,7 +14,6 @@ Thank you for your interest in contributing to our project! This document provid
 
 ```bash
 ├── public/            # Static assets (e.g., images, fonts)
-├── public/            # Static assets (e.g., images, fonts)
 ├── src/
 │   ├── app/           # Next.js App Router
 │   │   ├── components/ # Reusable React components
