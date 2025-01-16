@@ -3,7 +3,7 @@ import Timer from "./ui/Timer/Timer";
 
 export default function HeroSection() {
   return (
-    <Box sx={{ display: "flex", justifyContent: "center" }}>
+    <Box sx={{ display: "flex", justifyContent: "center"}}>
       <Timer />
     </Box>
   );

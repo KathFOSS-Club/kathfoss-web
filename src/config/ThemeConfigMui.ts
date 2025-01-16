@@ -103,6 +103,8 @@ const MainTheme = createTheme({
       },
     },
   },
+
+
 });
 
 export const themeConfigMui = responsiveFontSizes(MainTheme, {
