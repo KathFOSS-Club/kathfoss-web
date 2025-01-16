@@ -8,7 +8,8 @@ Thank you for your interest in contributing to our project! This document provid
 2. [Creating New Pages](#creating-new-pages)
 3. [Adding Components](#adding-components)
 4. [Defining Functions](#defining-functions)
-5. [Best Practices](#best-practices)
+5. [Material-UI](#material-ui)
+6. [Best Practices](#best-practices)
 
 ## Folder Structure
 
@@ -102,6 +103,48 @@ export default MyComponent;
 1. **Use camelCase for function names:** This means the first word starts with a lowercase letter, and each subsequent word starts with an uppercase letter. Example: calculateSum, fetchDataFromApi.
 
 2. **Use descriptive names:** The function name should clearly explain what the function does. Avoid vague names like `handle` or `doStuff`, and prefer names like `calculateTotalPrice`, `filterActiveUsers`, or `formatDate`.
+
+## Material-UI
+
+We are using **Material-UI (MUI)** as the primary component library for this project. Please follow these guidelines when working with MUI:
+
+1. **Theming:**
+
+- Use the theme configuration (ThemeMuiConfig) to apply consistent styles across the application. Avoid inline styling when possible.
+
+- Access the theme using useTheme or the sx prop for dynamic styling.
+
+2. **Pre-Built Components:**
+
+- Leverage MUI's pre-built components (e.g., `Button`, `Container`, `Typography`) instead of creating custom ones unless necessary.
+
+- Example:
+
+```bash
+import { Button } from '@mui/material';
+
+export default function ExampleButton() {
+  return <Button variant="contained" color="primary">Click Me</Button>;
+}
+```
+
+3. **Custom Styling:**
+
+- Use the `styled` API or the `sx` prop for customizations instead of raw CSS.
+
+- Example with `sx`:
+
+```bash
+<Button sx={{ backgroundColor: 'primary.main', borderRadius: 2 }}>Styled Button</Button>
+```
+
+4. **Reusable Components:**
+
+For frequently used custom MUI components, define them in the `ui/` folder within `components/`.
+
+5. **Documentation:**
+
+- Refer to the MUI Documentation for consistent usage and examples
 
 ## Best Practices
 
