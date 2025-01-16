@@ -42,17 +42,17 @@ Thank you for your interest in contributing to our project! This document provid
 2. Create a new file with a .tsx extension. For example, page.tsx.
 3. Add the following boilerplate code:
 
-```bash
-import React from 'react';
-
+```tsx
+import React from "react";
+import { Box, Typography } from "@mui/material";
 export default function EventPage() {
   return (
-    <div>
-      <h1>Example Page</h1>
-      <p>Welcome to the Example Page!</p>
-    </div>
+    <Box>
+      <Typography variant="h2">Example Page</Typography>
+      <Typography vairant="h3">Welcome to the Example Page!</Typography>
+    </Box>
   );
-};
+}
 ```
 
 ## Adding Components
@@ -63,33 +63,33 @@ export default function EventPage() {
 2. Determine the type of component you are adding:
    - If the components is a layout component then create a file in /component/layout
    - If the components is a smaller component like button then create a file in /component/ui
-3. If the component requires css then create one in the format `MyComponent.module.css`.
+3. If the component require CSS styling, it's recommended to use the `sx` prop from Material-UI (MUI)
 
-`MyComponent.tsx`
+### `MyComponent.tsx`
 
-```bash
-import React from 'react';
-import styles from './MyComponent.module.css';
+```tsx
+import React from "react";
+import { Box } from "@mui/material";
 
 interface MyComponentProps {
   title: string;
 }
 
 const MyComponent: React.FC<MyComponentProps> = ({ title }) => {
-  return <div className={styles.container}>{title}</div>;
+  return (
+    <Box
+      sx={{
+        padding: "1rem",
+        backgroundColor: "#f9f9f9",
+        borderRadius: "8px",
+      }}
+    >
+      {title}
+    </Box>
+  );
 };
 
 export default MyComponent;
-```
-
-`MyComponent.module.css`
-
-```bash
-.container {
-  padding: 1rem;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-}
 ```
 
 ### Notes:
@@ -120,11 +120,15 @@ We are using **Material-UI (MUI)** as the primary component library for this pro
 
 - Example:
 
-```bash
-import { Button } from '@mui/material';
+```tsx
+import { Button } from "@mui/material";
 
 export default function ExampleButton() {
-  return <Button variant="contained" color="primary">Click Me</Button>;
+  return (
+    <Button variant="contained" color="primary">
+      Click Me
+    </Button>
+  );
 }
 ```
 
@@ -134,8 +138,10 @@ export default function ExampleButton() {
 
 - Example with `sx`:
 
-```bash
-<Button sx={{ backgroundColor: 'primary.main', borderRadius: 2 }}>Styled Button</Button>
+```tsx
+<Button sx={{ backgroundColor: "primary.main", borderRadius: 2 }}>
+  Styled Button
+</Button>
 ```
 
 4. **Reusable Components:**
@@ -144,7 +150,7 @@ For frequently used custom MUI components, define them in the `ui/` folder withi
 
 5. **Documentation:**
 
-- Refer to the MUI Documentation for consistent usage and examples
+- Refer to the [MUI Documentation](https://mui.com/material-ui/getting-started/) for consistent usage and examples
 
 ## Best Practices
 
