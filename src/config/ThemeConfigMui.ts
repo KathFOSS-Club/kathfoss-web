@@ -7,6 +7,9 @@ const MainTheme = createTheme({
     primary: {
       main: "#0E1322", // Correct hex color
     },
+    secondary: {
+      main: "#2A2936",
+    },
     background: {
       default: "#0E1322",
       paper: "#181630",
@@ -18,7 +21,7 @@ const MainTheme = createTheme({
   },
 
   typography: {
-    fontFamily: "DM Sans, Arial, sans-serif",
+    fontFamily: "'DM Sans', 'Arial', 'sans-serif'",
     h1: {
       fontWeight: 500,
       fontSize: "3rem",
@@ -44,6 +47,17 @@ const MainTheme = createTheme({
     },
   },
   components: {
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#120F26",
+          color: "#000",
+          padding: "16px",
+          borderRadius: "8px",
+          margin: "0",
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {

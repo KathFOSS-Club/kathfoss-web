@@ -1,5 +1,10 @@
-import React from "react";
+import { Box, Typography } from "@mui/material";
+import Timer from "./ui/Timer/Timer";
 
 export default function HeroSection() {
-  return <div></div>;
+  return (
+    <Box sx={{ display: "flex", justifyContent: "center" }}>
+      <Timer />
+    </Box>
+  );
 }
