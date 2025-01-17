@@ -1,0 +1,30 @@
+# Ignore node_modules, log files and env variable files 
+node_modules/
+*.log
+*.env
+
+# Ignore dockerfile and .dockerignore
+Dockerfile
+.dockerignore
+
+# Ignore operating system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore build and output directories
+.next/
+out/
+build/
+
+# Ignore IDE and editor-specific files
+.vscode/
+.idea/
+*.swp
+
+# Ignore test coverage and temporary files
+coverage/
+*.tmp
+*.bak
+
+# Ignore other non-essential files 
+*.json
