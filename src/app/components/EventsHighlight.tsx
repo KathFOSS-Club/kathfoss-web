@@ -10,7 +10,7 @@ export const EventsHighlight = () => {
     "/Images/search.png",
     "/Images/icons8-marketplace-48.png",
     "/Images/RAIN.png",
-    "/Images/menu.png",
+    "/Images/menu.png" ,
   ];
   const eventImages = [
     "/Images/home2.png",
