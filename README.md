@@ -35,7 +35,7 @@ Follow these steps to set up the project locally:
  1. Fork the Repository:
     - Start by forking this repository to your GitHub account.
       ```bash
-        git clone https://github.com/KathFOSS-Club/kathfoss-web.git
+        git clone https://github.com/your-username/kathfoss-web.git
         cd kathfoss-web
       
 2. Set Up the Development Environment:
@@ -67,3 +67,6 @@ Follow these steps to set up the project locally:
 7. Open a Pull Request (PR):
    - Navigate to the original repository and click **New Pull Request**.
    - Provide clear description of your changes and link any related issues.
+
+## License 
+This project is licensed under the [MIT License](./LICENSE).

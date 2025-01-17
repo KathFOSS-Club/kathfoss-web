@@ -1,18 +1,22 @@
 import { Typography } from "@mui/material";
 import React from "react";
 
-interface FormatTimeProps {
-  value: number;
-  unit: string;
-}
-export default function FormatTime({ value, unit }: FormatTimeProps) {
+export default function FormatTime({ value }: { value: number }) {
+  const formattedValue = String(value).padStart(2, "0"); // Ensures two digits
   return (
     <>
-      <Typography variant="h2" sx={{ fontSize: "6vw" }}>
-        {value}
-        <Typography variant="body1" sx={{ fontSize: "2vh" }}>
-          {value === 1 ? unit : `${unit}s`}
-        </Typography>
+      <Typography
+        sx={{
+          textAlign: "center",
+          fontSize: "4rem",
+          lineHeight: "4rem",
+          backgroundColor: "secondary.main",
+          fontFamily: "DS-Digital",
+          width: "6rem",
+          paddingBottom: "12px",
+        }}
+      >
+        {formattedValue}
       </Typography>
     </>
   );
