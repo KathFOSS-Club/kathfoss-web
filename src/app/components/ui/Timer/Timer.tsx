@@ -52,33 +52,19 @@ export default function Timer() {
   return (
     <Box
       sx={{
-        padding: "10px",
-        width: "550px",
-        backgroundColor: "#1F2531",
-        marginTop: "96px",
         display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        borderRadius: "8px",
+        alignItems: "center",
+        gap: "1rem",
+        marginTop: "5rem",
       }}
     >
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-evenly",
-          alignItems: "center",
-          marginTop: "6px",
-          height: "10vh",
-        }}
-      >
-        <FormatTime value={time.days} unit="Day" />
-        <Typography variant="h2">:</Typography>
-        <FormatTime value={time.hours} unit="Hour" />
-        <Typography variant="h2">:</Typography>
-        <FormatTime value={time.minutes} unit="Minute" />
-        <Typography variant="h2">:</Typography>
-        <FormatTime value={time.seconds} unit="Second" />
-      </Box>
+      <FormatTime value={time.days} />
+      <Typography variant="h2">:</Typography>
+      <FormatTime value={time.hours} />
+      <Typography variant="h2">:</Typography>
+      <FormatTime value={time.minutes} />
+      <Typography variant="h2">:</Typography>
+      <FormatTime value={time.seconds} />
     </Box>
   );
 }
