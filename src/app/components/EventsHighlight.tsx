@@ -4,20 +4,21 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import highlightBoxStyle from "./HighlightStyle";
 
+
 export const EventsHighlight = () => {
   const imgs = [
-    "/Images/home2.png",
-    "/Images/search.png",
-    "/Images/icons8-marketplace-48.png",
-    "/Images/RAIN.png",
-    "/Images/menu.png" ,
+    "/images/EventsHighlights/home2.png",
+    "/images/EventsHighlights/search.png",
+    "/images/EventsHighlights/icons8-marketplace-48.png",
+    "/images/EventsHighlights/RAIN.png",
+    "/images/EventsHighlights/menu.png" ,
   ];
   const eventImages = [
-    "/Images/home2.png",
-    "/Images/search.png",
-    "/Images/icons8-marketplace-48.png",
-    "/Images/RAIN.png",
-    "/Images/menu.png",
+    "/images/EventsHighlights/home2.png",
+    "/images/EventsHighlights/search.png",
+    "/images/EventsHighlights/icons8-marketplace-48.png",
+    "/images/EventsHighlights/RAIN.png",
+    "/images/EventsHighlights/menu.png" ,
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
 
