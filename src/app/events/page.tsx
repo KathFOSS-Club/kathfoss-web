@@ -1,7 +1,6 @@
 
 
 import { Box } from "@mui/material";
-import UpcomingEvents from "./components/ui/UpcomingEvents/UpcomingEvents"; 
 
 export default function Events() {
   return (
