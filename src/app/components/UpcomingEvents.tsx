@@ -6,9 +6,8 @@ import {
   CardMedia,
   Typography,
   Button,
-  Grid2,
 } from "@mui/material";
-import Image from "next/image";
+import Grid from "@mui/material/Grid2";
 
 const events = [
   {
@@ -44,14 +43,14 @@ export default function UpcomingEvents() {
         UPCOMING EVENTS
       </Typography>
 
-      <Grid2
+      <Grid
         container
         spacing={5}
         justifyContent="center" //horizontal centre items
         alignItems="center" //vertical centre items
       >
         {events.map((event, index) => (
-          <Grid2 key={index}>
+          <Grid key={index}>
             <Card
               sx={{
                 maxWidth: 345,
@@ -106,9 +105,9 @@ export default function UpcomingEvents() {
                 </Button>
               </Box>
             </Card>
-          </Grid2>
+          </Grid>
         ))}
-      </Grid2>
+      </Grid>
     </Box>
   );
 }
