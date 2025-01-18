@@ -26,5 +26,3 @@ coverage/
 *.tmp
 *.bak
 
-# Ignore other non-essential files 
-*.json
