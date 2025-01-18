@@ -1,10 +1,8 @@
-# Pull Request Template
-
-## Description
+# What does this PR do?
 
 Please include a summary of the changes and the related issue. Highlight the purpose and context of this PR.
 
-Fixes: #(issue number)
+Fixes: # (issue number)
 
 ## Changes Made
 
