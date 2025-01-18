@@ -1,4 +1,4 @@
-"use client";  // Indicates that this is a client-side component
+"use client";
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -8,7 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
 export default function Header() {
-  const [isDrawerOpen, setDrawerOpen] = useState(false);
+  const [isDrawerOpen, setDrawerOpen] = useState<boolean>(false);
 
   const navItems = [
     { label: 'HOME', href: '#home' },
@@ -22,13 +22,12 @@ export default function Header() {
       position="static"
       sx={{
         backgroundColor: '#0A001F',
-        height: 80,
         maxWidth: '1000px',
         margin: '20px auto',
         borderRadius: 2,
       }}
     >
-      <Toolbar sx={{ justifyContent: 'space-between', minHeight: 70, px: 3 }}>
+      <Toolbar sx={{ justifyContent: 'space-between', px: 3 }}>
         {/* Logo */}
         <Image src="/assets/icon.svg" alt="Logo" width={150} height={150} />
 
@@ -55,7 +54,7 @@ export default function Header() {
             display: { xs: 'flex', md: 'none' },
             color: '#FFFFFF',
             position: 'absolute',
-            top: 20,
+            top: 5,
             right: 10,
           }}
           onClick={() => setDrawerOpen(!isDrawerOpen)}
@@ -74,12 +73,7 @@ export default function Header() {
               padding: '5px',
               top: 90,
               right: 5,
-              width: 'auto',
-              maxWidth: '250px',
               height: 'auto',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
               borderRadius: '10px',
             },
           }}
