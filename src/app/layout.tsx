@@ -24,7 +24,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${poppins.variable} ${poppins.variable} antialiased`}>
+      <body className={`${poppins.variable} antialiased`}>
         <Providers>
           <BackgroundAnimation />
           <Box sx={{ position: "relative", zIndex: 1 }}>{children}</Box>
