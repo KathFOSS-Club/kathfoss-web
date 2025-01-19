@@ -6,7 +6,6 @@ export default function Events() {
   return (
     <Box>
       <h1>Upcoming Events</h1>
-      <UpcomingEvents /> 
     </Box>
   );
 }
