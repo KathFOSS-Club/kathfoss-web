@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import {
   Box,
@@ -8,21 +6,21 @@ import {
   CardMedia,
   Typography,
   Button,
-  Grid2,
 } from "@mui/material";
+import Grid from "@mui/material/Grid2";
 
 const events = [
   {
     title: "Introducing Ucharan AI",
     description: "Event details: 20th Jan, 2025",
     image: "/images/UpcomingEvents/ucharan-ai.png",
-    link: "#",//Updated link for learn more
+    link: "#",
   },
   {
     title: "Hackathon",
     description: "Event details: 28th June, 2025",
     image: "/images/UpcomingEvents/hackathon.png",
-    link: "#",//https://example.com/hackathon
+    link: "#",
   },
   {
     title: "Git/GitHub Python Workshop",
@@ -36,49 +34,80 @@ export default function UpcomingEvents() {
   return (
     <Box sx={{ padding: 4 }}>
       <Typography
-        variant="h4"
+        variant="h2"
         component="h2"
         align="center"
         gutterBottom
-        sx={{ fontWeight: "bold", marginBottom: 3 }}
+        sx={{ fontWeight: "600", marginBottom: 3 }}
       >
-        Upcoming Events
+        UPCOMING EVENTS
       </Typography>
-      <Grid2
+
+      <Grid
         container
-        spacing={4}
+        spacing={5}
         justifyContent="center" //horizontal centre items
         alignItems="center" //vertical centre items
       >
         {events.map((event, index) => (
-          <Grid2  key={index}>
-            <Card sx={{ maxWidth: 345, margin: "auto" }}> 
-              <CardMedia
-                component="img"
-                height="140"
-                image={event.image}
-                alt={event.title}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+          <Grid key={index}>
+            <Card
+              sx={{
+                maxWidth: 345,
+                margin: "auto",
+                borderRadius: "26px",
+              }}
+            >
+              <Box
+                component="div"
+                sx={{
+                  padding: "30px",
+                  borderRadius: "20px",
+                }}
+              >
+                <Box sx={{ overflow: "hidden", borderRadius: "inherit" }}>
+                  <CardMedia
+                    component="img"
+                    image={event.image}
+                    alt={event.title}
+                    sx={{
+                      transition: "transform 0.3s ease-in-out",
+                      cursor: "pointer",
+                      "&:hover": {
+                        transform: "scale(1.15)",
+                      },
+                    }}
+                  />
+                </Box>
+              </Box>
+
+              <CardContent
+                sx={{ textAlign: "left", marginBottom: "5px", px: "30px" }}
+              >
+                <Typography
+                  variant="h4"
+                  component="span"
+                  sx={{ fontWeight: "600" }}
+                >
                   {event.title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography
+                  variant="h5"
+                  sx={{ fontWeight: "500" }}
+                  color="text.secondary"
+                >
                   {event.description}
                 </Typography>
               </CardContent>
-              <Button
-                size="small"
-                color="primary"
-                href={event.link}
-                target="_blank"
-              >
-                Learn More
-              </Button>
+              <Box sx={{ textAlign: "center", marginBottom: "20px" }}>
+                <Button variant="outlined" href={event.link}>
+                  REGISTER
+                </Button>
+              </Box>
             </Card>
-          </Grid2>
+          </Grid>
         ))}
-      </Grid2>
+      </Grid>
     </Box>
   );
 }

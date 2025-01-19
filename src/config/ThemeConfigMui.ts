@@ -21,14 +21,14 @@ const MainTheme = createTheme({
   },
 
   typography: {
-    fontFamily: "'DM Sans', 'Arial', 'sans-serif'",
+    fontFamily: "Poppins",
     h1: {
       fontWeight: 500,
       fontSize: "3rem",
       color: "#FFF",
     },
     h2: {
-      fontWeight: 600,
+      fontWeight: 500,
       fontSize: "2rem",
       color: "#FFF",
     },
@@ -37,8 +37,18 @@ const MainTheme = createTheme({
       fontSize: "1.5rem",
       color: "#FFF",
     },
-    body1: {
+    h4: {
+      fontWeight: 300,
+      fontSize: "1.25rem",
+      color: "#FFF",
+    },
+    h5: {
+      fontWeight: 200,
       fontSize: "1rem",
+      color: "#FFF",
+    },
+    body1: {
+      fontSize: "1.35rem",
       color: "#FFF",
     },
     button: {
@@ -61,22 +71,22 @@ const MainTheme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: "8px",
-          padding: "8px 16px",
+          borderRadius: "20px",
+          padding: "8px 20px",
         },
         containedPrimary: {
           backgroundColor: "#FFE401",
-          color: "#000",
+          color: "#000000",
           "&:hover": {
             backgroundColor: "#FFD700",
           },
         },
         outlinedPrimary: {
-          borderColor: "#FFE401",
-          color: "#FFE401",
+          borderColor: "#696969",
+          color: "#FFFFFF",
           "&:hover": {
-            borderColor: "#FFD700",
-            color: "#FFD700",
+            borderColor: "#FFFFFF",
+            color: "#FFFFFF",
           },
         },
       },

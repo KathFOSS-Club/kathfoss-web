@@ -6,9 +6,9 @@ export default function FormatTime({ value }: { value: number }) {
   return (
     <>
       <Typography
+        variant="h1"
         sx={{
           textAlign: "center",
-          fontSize: "4rem",
           lineHeight: "4rem",
           backgroundColor: "secondary.main",
           fontFamily: "DS-Digital",
