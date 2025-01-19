@@ -30,7 +30,7 @@ const events = [
   },
 ];
 
-export default function UpcomingEvents() {
+const UpcomingEvents = React.memo(() => {
   return (
     <Box sx={{ padding: 4 }}>
       <Typography
@@ -43,13 +43,8 @@ export default function UpcomingEvents() {
         UPCOMING EVENTS
       </Typography>
 
-      <Grid
-        container
-        spacing={5}
-        justifyContent="center" //horizontal centre items
-        alignItems="center" //vertical centre items
-      >
-        {events.map((event, index) => (
+      <Grid container spacing={5} justifyContent="center" alignItems="center">
+        {events.map(({ title, description, image, link }, index) => (
           <Grid key={index}>
             <Card
               sx={{
@@ -68,8 +63,8 @@ export default function UpcomingEvents() {
                 <Box sx={{ overflow: "hidden", borderRadius: "inherit" }}>
                   <CardMedia
                     component="img"
-                    image={event.image}
-                    alt={event.title}
+                    image={image}
+                    alt={title}
                     sx={{
                       transition: "transform 0.3s ease-in-out",
                       cursor: "pointer",
@@ -81,26 +76,16 @@ export default function UpcomingEvents() {
                 </Box>
               </Box>
 
-              <CardContent
-                sx={{ textAlign: "left", marginBottom: "5px", px: "30px" }}
-              >
-                <Typography
-                  variant="h4"
-                  component="span"
-                  sx={{ fontWeight: "600" }}
-                >
-                  {event.title}
+              <CardContent sx={{ textAlign: "left", marginBottom: "5px", px: "30px" }}>
+                <Typography variant="h4" component="span" sx={{ fontWeight: "600" }}>
+                  {title}
                 </Typography>
-                <Typography
-                  variant="h5"
-                  sx={{ fontWeight: "500" }}
-                  color="text.secondary"
-                >
-                  {event.description}
+                <Typography variant="h5" sx={{ fontWeight: "500" }} color="text.secondary">
+                  {description}
                 </Typography>
               </CardContent>
               <Box sx={{ textAlign: "center", marginBottom: "20px" }}>
-                <Button variant="outlined" href={event.link}>
+                <Button variant="outlined" href={link}>
                   REGISTER
                 </Button>
               </Box>
@@ -110,4 +95,6 @@ export default function UpcomingEvents() {
       </Grid>
     </Box>
   );
-}
+});
+
+export default UpcomingEvents;
