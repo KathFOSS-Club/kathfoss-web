@@ -3,18 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  AppBar,
-  Toolbar,
-  Box,
-  Button,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-} from "@mui/material";
+import { AppBar, Toolbar, Box, IconButton, Button } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -45,9 +34,7 @@ export default function Header() {
       position="sticky"
       elevation={isScrolled ? 3 : 0}
       sx={{
-        backgroundColor: isScrolled
-          ? "rgba(255, 255, 255, 0.8)"
-          : "transparent",
+        backgroundColor: isScrolled ? "rgb(5, 8, 22)" : "transparent",
         boxShadow: isScrolled ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none",
         transition: "background-color 0.3s, box-shadow 0.3s",
         padding: "10px 20px",
@@ -71,11 +58,12 @@ export default function Header() {
             <Link key={item.label} href={item.href} passHref>
               <Button
                 sx={{
-                  color: isScrolled ? "#000" : "#FFF",
+                  color: "#FFF",
                   fontWeight: "normal",
                   fontSize: "14px",
                   textTransform: "none",
                   transition: "color 0.3s",
+                  "&:hover": { color: "#BBB" },
                 }}
               >
                 {item.label}
@@ -93,7 +81,6 @@ export default function Header() {
           }}
           onClick={() => setIsDrawerOpen(!isDrawerOpen)}
         >
-          {/* Toggling between MenuIcon and CloseIcon */}
           {isDrawerOpen ? (
             <CloseIcon sx={{ fontSize: "30px", color: "#FFF" }} />
           ) : (
@@ -101,61 +88,45 @@ export default function Header() {
           )}
         </IconButton>
 
-        {/* Mobile Drawer */}
-        <Drawer
-          anchor="right"
-          open={isDrawerOpen}
-          onClose={() => setIsDrawerOpen(false)}
-          elevation={0}
-          sx={{
-            "& .MuiDrawer-paper": {
-              backgroundColor: "transparent",
-              color: "#FFF",
-              padding: "20px 10px",
-              borderRadius: "15px 0 0 15px",
-              height: "auto",
-              width: "40%",
-              top: "50px",
-              right: 0,
-              position: "fixed",
-            },
-          }}
-        >
-          <List
+        {/* Mobile Menu */}
+        {isDrawerOpen && (
+          <Box
             sx={{
+              position: "absolute",
+              top: "70px",
+              right: 0,
+              backgroundColor: "rgba(0, 0, 0, 0.85)",
+              borderRadius: "15px 0 0 15px",
+              padding: "20px",
+              zIndex: 10,
+              width: "140px",
               display: "flex",
               flexDirection: "column",
-              alignItems: "center",
+              gap: 2,
             }}
           >
             {navItems.map((item) => (
-              <ListItem key={item.label} disablePadding>
-                <ListItemButton
-                  component="a"
-                  href={item.href}
-                  onClick={() => setIsDrawerOpen(false)} // Close the drawer after clicking a nav item
+              <Link key={item.label} href={item.href} passHref>
+                <Box
+                  onClick={() => setIsDrawerOpen(false)}
                   sx={{
+                    fontWeight: "bold",
+                    fontSize: "16px",
                     textAlign: "center",
+                    color: "#FFF",
+                    textTransform: "uppercase",
+                    cursor: "pointer",
                     "&:hover": {
-                      backgroundColor: "rgba(255, 255, 255, 0.1)",
-                      borderRadius: 1,
+                      color: "rgb(255, 255, 255, 0.8)",
                     },
                   }}
                 >
-                  <ListItemText
-                    primary={item.label}
-                    primaryTypographyProps={{
-                      fontWeight: "bold",
-                      textAlign: "center",
-                      fontSize: "18px",
-                      textTransform: "uppercase",
-                    }}
-                  />
-                </ListItemButton>
-              </ListItem>
+                  {item.label}
+                </Box>
+              </Link>
             ))}
-          </List>
-        </Drawer>
+          </Box>
+        )}
       </Toolbar>
     </AppBar>
   );
