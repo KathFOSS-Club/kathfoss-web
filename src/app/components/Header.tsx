@@ -19,8 +19,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
 export default function Header() {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const navItems = [
     { label: "HOME", href: "#home" },
@@ -29,14 +29,12 @@ export default function Header() {
     { label: "CONTACT US", href: "#contact-us" },
   ];
 
-  // Add scroll listener
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -73,7 +71,7 @@ export default function Header() {
             <Link key={item.label} href={item.href} passHref>
               <Button
                 sx={{
-                  color: isScrolled ? "#000000" : "#FFFFFF",
+                  color: isScrolled ? "#000" : "#FFF",
                   fontWeight: "normal",
                   fontSize: "14px",
                   textTransform: "none",
@@ -90,12 +88,17 @@ export default function Header() {
         <IconButton
           sx={{
             display: { xs: "flex", md: "none" },
-            color: isScrolled ? "#000000" : "#FFFFFF",
-            transition: "color 0.3s",
+            color: "#FFFFFF",
+            position: "relative",
           }}
           onClick={() => setIsDrawerOpen(!isDrawerOpen)}
         >
-          {isDrawerOpen ? <CloseIcon /> : <MenuIcon />}
+          {/* Toggling between MenuIcon and CloseIcon */}
+          {isDrawerOpen ? (
+            <CloseIcon sx={{ fontSize: "30px", color: "#FFF" }} />
+          ) : (
+            <MenuIcon sx={{ fontSize: "30px", color: "#FFF" }} />
+          )}
         </IconButton>
 
         {/* Mobile Drawer */}
@@ -106,13 +109,13 @@ export default function Header() {
           elevation={0}
           sx={{
             "& .MuiDrawer-paper": {
-              backgroundColor: isScrolled ? "#FFFFFF" : "transparent",
-              color: isScrolled ? "#000000" : "#FFFFFF",
+              backgroundColor: "transparent",
+              color: "#FFF",
               padding: "20px 10px",
               borderRadius: "15px 0 0 15px",
               height: "auto",
               width: "40%",
-              top: "70px",
+              top: "50px",
               right: 0,
               position: "fixed",
             },
@@ -122,7 +125,6 @@ export default function Header() {
             sx={{
               display: "flex",
               flexDirection: "column",
-              gap: 2,
               alignItems: "center",
             }}
           >
@@ -131,11 +133,11 @@ export default function Header() {
                 <ListItemButton
                   component="a"
                   href={item.href}
-                  onClick={() => setIsDrawerOpen(false)}
+                  onClick={() => setIsDrawerOpen(false)} // Close the drawer after clicking a nav item
                   sx={{
                     textAlign: "center",
                     "&:hover": {
-                      backgroundColor: "rgba(0, 0, 0, 0.05)",
+                      backgroundColor: "rgba(255, 255, 255, 0.1)",
                       borderRadius: 1,
                     },
                   }}

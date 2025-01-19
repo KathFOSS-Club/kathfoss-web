@@ -69,7 +69,7 @@ export default function UpcomingEvents() {
                       transition: "transform 0.3s ease-in-out",
                       cursor: "pointer",
                       "&:hover": {
-                        transform: "scale(1.15)",
+                        transform: "scale(1.25)",
                       },
                     }}
                   />
