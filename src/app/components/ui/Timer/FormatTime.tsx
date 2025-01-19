@@ -14,6 +14,7 @@ export default function FormatTime({ value }: { value: number }) {
           fontFamily: "DS-Digital",
           width: "6rem",
           paddingBottom: "12px",
+          borderRadius: 3,
         }}
       >
         {formattedValue}
