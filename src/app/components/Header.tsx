@@ -8,7 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
 export default function Header() {
-  const [isDrawerOpen, setDrawerOpen] = useState<boolean>(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
   const navItems = [
     { label: 'HOME', href: '#home' },
@@ -24,7 +24,7 @@ export default function Header() {
         backgroundColor: '#0A001F',
         maxWidth: '1000px',
         margin: '20px auto',
-        borderRadius: 2,
+        borderRadius: 3,
       }}
     >
       <Toolbar sx={{ justifyContent: 'space-between', px: 3 }}>
@@ -55,9 +55,9 @@ export default function Header() {
             color: '#FFFFFF',
             position: 'absolute',
             top: 5,
-            right: 10,
+            right: 5,
           }}
-          onClick={() => setDrawerOpen(!isDrawerOpen)}
+          onClick={() => setIsDrawerOpen(!isDrawerOpen)}
         >
         {isDrawerOpen?<CloseIcon sx={{ fontSize: '30px'}}/>:<MenuIcon sx={{ fontSize: '30px' }} />}
         </IconButton>
@@ -65,7 +65,7 @@ export default function Header() {
           <Drawer
           anchor="right"
           open={isDrawerOpen}
-          onClose={()=>setDrawerOpen(false)}
+          onClose={()=>setIsDrawerOpen(false)}
           sx={{
             '& .MuiDrawer-paper': {
               backgroundColor: 'rgba(10, 0, 31, 0.85)',
@@ -85,7 +85,7 @@ export default function Header() {
                 <ListItemButton
                   component="a"
                   href={item.href}
-                  onClick={() => setDrawerOpen(false)}
+                  onClick={() => setIsDrawerOpen(false)}
                   sx={{
                     textAlign: 'center',
                   }}
