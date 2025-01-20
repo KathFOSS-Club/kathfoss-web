@@ -28,7 +28,6 @@ export const EventsHighlight = () => {
   return (
     <Box
       sx={{
-        height: "150vh",
         marginTop: "10vh",
         display: "flex-col",
       }}
@@ -41,8 +40,15 @@ export const EventsHighlight = () => {
         <Typography variant="h1">EVENT HIGHLIGHTS</Typography>
       </Box>
 
-      <Box sx={{ display: "flex-col", marginTop: "2rem" }}>
-        <Box>
+      <Box
+        sx={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}
+      >
+        <Box
+          sx={{
+            width: { md: "80%", xs: "100%" },
+            overflow: { md: "hidden", xs: "none" },
+          }}
+        >
           <Carousel slides={imgs} />
         </Box>
       </Box>
