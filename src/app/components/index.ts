@@ -11,10 +11,6 @@ export { default as Footer } from "./Footer";
 
 
 
-// {
-//   eventhighlight:function
-//   default: unknown
-// }
 
 
 
