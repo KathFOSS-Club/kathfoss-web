@@ -1,12 +1,11 @@
 "use client";
 import { IconArrowNarrowRight } from "@tabler/icons-react";
 import { useState, useRef, useId, useEffect } from "react";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import Image from "next/image";
 
 interface SlideData {
   title: string;
-  button: string;
   src: string;
 }
 
@@ -64,8 +63,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
     event.currentTarget.style.opacity = "1";
   };
 
-  const { src, button, title } = slide;
-
+  const { src, title } = slide;
   return (
     <Box
       sx={{
@@ -84,11 +82,9 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
           alignItems: "center",
           justifyContent: "center",
           position: "relative",
-          textAlign: "center",
-          color: "white",
           opacity: 1,
           transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
-          width: "50vmin",
+          width: "70vmin",
           height: "70vmin",
           marginX: "4vmin",
           zIndex: 10,
@@ -120,7 +116,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
             alt={title}
             src={src}
             onLoad={imageLoaded}
-            loading="eager"
+            loading="lazy"
             decoding="sync"
             style={{
               position: "absolute",
@@ -129,33 +125,14 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
               height: "100%",
               objectFit: "cover",
               opacity: current === index ? 1 : 0.5,
-              transition: "opacity 0.9s ease-in-out",
+              transition: "opacity 0.7s ease-in-out",
               transform: "scale(1,1)",
+              cursor: "pointer",
             }}
             width={500}
             height={500}
           />
-          {current === index && (
-            <Box
-              sx={{
-                position: "absolute",
-                inset: 0,
-                backgroundColor: "rgba(0, 0, 0, 0.3)",
-                transition: "all 1s ease-out",
-              }}
-            />
-          )}
         </Box>
-
-        <Box
-          sx={{
-            position: "relative",
-            padding: "4vmin",
-            opacity: current === index ? 1 : 0,
-            visibility: current === index ? "visible" : "invisible",
-            transition: "opacity 1s ease-in-out",
-          }}
-        ></Box>
       </Box>
     </Box>
   );
@@ -173,17 +150,12 @@ const CarouselControl = ({
   handleClick,
 }: CarouselControlProps) => (
   <Button
+    variant="contained"
     onClick={handleClick}
     sx={{
-      width: "40px",
-      height: "40px",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: "neutral.200",
-      borderRadius: "50%",
-      border: "3px solid transparent",
+      padding: "8px",
       transition: "transform 0.2s ease-in-out",
+      minWidth: "0",
 
       ...(type === "previous" && { transform: "rotate(180deg)" }),
     }}
@@ -199,7 +171,9 @@ interface CarouselProps {
 
 export default function Carousel({ slides }: CarouselProps) {
   const [current, setCurrent] = useState(1);
-
+  const containerRef = useRef<HTMLDivElement>(null);
+  const startXRef = useRef<number | null>(null); // Starting pointer position
+  const offsetXRef = useRef(0); // Current offset during dragging
   const handlePreviousClick = () => {
     const previous = current - 1;
     setCurrent(previous < 0 ? slides.length - 1 : previous);
@@ -215,6 +189,56 @@ export default function Carousel({ slides }: CarouselProps) {
       setCurrent(index);
     }
   };
+  const handlePointerDown = (event: React.PointerEvent) => {
+    console.log("point down");
+    startXRef.current = event.clientX;
+    console.log(startXRef);
+    offsetXRef.current = 0;
+    if (containerRef.current) {
+      containerRef.current.style.transition = "none"; // Disable transition during drag
+    }
+  };
+
+  const handlePointerMove = (event: React.PointerEvent) => {
+    if (startXRef.current === null) return;
+
+    const currentX = event.clientX;
+    offsetXRef.current = currentX - startXRef.current;
+
+    if (containerRef.current) {
+      const translateX =
+        -current * (100 / slides.length) +
+        (offsetXRef.current / containerRef.current.clientWidth) * 100;
+      containerRef.current.style.transform = `translateX(${translateX}%)`;
+    }
+  };
+
+  const handlePointerUp = () => {
+    if (startXRef.current === null) return;
+
+    const containerWidth = containerRef.current?.clientWidth || 1;
+    const threshold = containerWidth * 0.2;
+
+    if (Math.abs(offsetXRef.current) > threshold) {
+      if (offsetXRef.current > 0) {
+        handlePreviousClick();
+      } else {
+        handleNextClick();
+      }
+    } else {
+      // If not beyond threshold, snap back to the current slide
+      if (containerRef.current) {
+        containerRef.current.style.transition = "transform 0.7s ease-in-out";
+        containerRef.current.style.transform = `translateX(-${
+          current * (100 / slides.length)
+        }%)`;
+      }
+    }
+
+    // Reset state
+    startXRef.current = null;
+    offsetXRef.current = 0;
+  };
 
   const id = useId();
 
@@ -222,7 +246,7 @@ export default function Carousel({ slides }: CarouselProps) {
     <Box
       sx={{
         position: "relative",
-        width: "50vmin",
+        width: "80vmin",
         height: "70vmin",
         marginX: "auto",
       }}
@@ -232,9 +256,14 @@ export default function Carousel({ slides }: CarouselProps) {
         sx={{
           position: "absolute",
           display: "flex",
-          transition: "transform 1s ease-in-out",
+          transition: "transform 0.7s ease-in-out",
           transform: `translateX(-${current * (100 / slides.length)}%)`,
         }}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerUp}
+        onPointerLeave={handlePointerUp}
       >
         {slides.map((slide, index) => (
           <Slide
@@ -250,10 +279,14 @@ export default function Carousel({ slides }: CarouselProps) {
       <Box
         sx={{
           position: "absolute",
+          top: "50%",
+          left: 0,
+          right: 0,
           display: "flex",
-          justifyContent: "center",
-          width: "100%",
-          top: "calc(100% + 1rem)",
+          justifyContent: "space-between",
+          alignItems: "center",
+          transform: "translateY(-50%)",
+          margin: "0 -1rem 0 -1.6rem", // Adds spacing around the edges
         }}
       >
         <CarouselControl
