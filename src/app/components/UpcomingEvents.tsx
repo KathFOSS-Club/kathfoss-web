@@ -32,7 +32,7 @@ const events = [
 
 const UpcomingEvents = React.memo(() => {
   return (
-    <Box sx={{ padding: 4 }}>
+    <Box sx={{ padding: 4, marginTop: 10 }}>
       <Typography
         variant="h2"
         component="h2"
@@ -69,7 +69,7 @@ const UpcomingEvents = React.memo(() => {
                       transition: "transform 0.3s ease-in-out",
                       cursor: "pointer",
                       "&:hover": {
-                        transform: "scale(1.15)",
+                        transform: "scale(1.25)",
                       },
                     }}
                   />
