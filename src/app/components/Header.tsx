@@ -32,18 +32,17 @@ export default function Header() {
   return (
     <AppBar
       position="sticky"
-      elevation={isScrolled ? 3 : 0}
+      elevation={isScrolled ? 2 : 0}
       sx={{
-        backgroundColor: isScrolled ? "rgb(5, 8, 22)" : "transparent",
+        backgroundColor: isScrolled ? "rgb(24, 22, 48,0.8)" : "transparent",
         boxShadow: isScrolled ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none",
-        transition: "background-color 0.3s, box-shadow 0.3s",
         padding: "10px 20px",
       }}
     >
       <Toolbar sx={{ justifyContent: "space-between", alignItems: "center" }}>
         {/* Logo */}
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Image src="/assets/icon.svg" alt="Logo" width={130} height={130} />
+          <Image src="/assets/logo.svg" alt="Logo" width={130} height={130} />
         </Box>
 
         {/* Desktop Navigation */}
@@ -105,8 +104,8 @@ export default function Header() {
               gap: 2,
             }}
           >
-            {navItems.map((item) => (
-              <Link key={item.label} href={item.href} passHref>
+            {navItems.map(({ label, href }) => (
+              <Link key={label} href={href} passHref>
                 <Box
                   onClick={() => setIsDrawerOpen(false)}
                   sx={{
@@ -121,7 +120,7 @@ export default function Header() {
                     },
                   }}
                 >
-                  {item.label}
+                  {label}
                 </Box>
               </Link>
             ))}
