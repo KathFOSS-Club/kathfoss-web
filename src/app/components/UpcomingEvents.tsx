@@ -32,7 +32,7 @@ const events = [
 
 export default function UpcomingEvents() {
   return (
-    <Box sx={{ padding: 4 }}>
+    <Box sx={{ padding: 4, marginTop: 10 }}>
       <Typography
         variant="h2"
         component="h2"
@@ -43,12 +43,7 @@ export default function UpcomingEvents() {
         UPCOMING EVENTS
       </Typography>
 
-      <Grid
-        container
-        spacing={5}
-        justifyContent="center" //horizontal centre items
-        alignItems="center" //vertical centre items
-      >
+      <Grid container spacing={5} justifyContent="center" alignItems="center">
         {events.map((event, index) => (
           <Grid key={index}>
             <Card
@@ -74,7 +69,7 @@ export default function UpcomingEvents() {
                       transition: "transform 0.3s ease-in-out",
                       cursor: "pointer",
                       "&:hover": {
-                        transform: "scale(1.15)",
+                        transform: "scale(1.25)",
                       },
                     }}
                   />
