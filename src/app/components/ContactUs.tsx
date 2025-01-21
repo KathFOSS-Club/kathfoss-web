@@ -181,7 +181,7 @@ export default function ContactUs() {
         <Box
           sx={{
             flex: "1 1 50%",
-            backgroundColor: "#112240",
+            backgroundColor: "#190033",
             padding: 4,
             borderRadius: "8px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
@@ -214,10 +214,10 @@ export default function ContactUs() {
               }}
             />
             <Typography variant="body1" sx={{ color: "#87CEFA" }}>
-              Surname
+              Phone Number
             </Typography>
             <TextField
-              label="Enter your Surname"
+              label="Enter your Phone Number"
               variant="outlined"
               fullWidth
               sx={{
