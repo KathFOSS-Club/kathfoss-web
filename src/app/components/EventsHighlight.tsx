@@ -44,10 +44,10 @@ export const EventsHighlight = () => {
         sx={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}
       >
         <Box
-          sx={{
-            width: { md: "80%", xs: "100%" },
-            overflow: { md: "hidden", xs: "none" },
-          }}
+        // sx={{
+        //   width: { md: "80%", xs: "100%" },
+        //   overflow: { md: "hidden", xs: "none" },
+        // }}
         >
           <Carousel slides={imgs} />
         </Box>

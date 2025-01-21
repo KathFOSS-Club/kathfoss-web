@@ -64,6 +64,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
   };
 
   const { src, title } = slide;
+  const [isExpanded, setIsExpanded] = useState(false);
   return (
     <Box
       sx={{
@@ -72,10 +73,6 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
       }}
     >
       <Box
-        ref={slideRef}
-        onClick={() => handleSlideClick(index)}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -94,6 +91,10 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
               : "scale(1) rotateX(0deg)",
           transformOrigin: "bottom",
         }}
+        ref={slideRef}
+        onClick={() => handleSlideClick(index)}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
       >
         <Box
           sx={{
@@ -110,28 +111,73 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
               current === index
                 ? "translate3d(calc(var(--x) / 30), calc(var(--y) / 30), 0)"
                 : "none",
+            display: "flex",
+            flexDirection: "column",
           }}
         >
-          <Image
-            alt={title}
-            src={src}
-            onLoad={imageLoaded}
-            loading="lazy"
-            decoding="sync"
-            style={{
-              position: "absolute",
-              inset: 0,
+          {/* Image Section */}
+          <Box
+            sx={{
+              position: "relative",
               width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              opacity: current === index ? 1 : 0.5,
-              transition: "opacity 0.7s ease-in-out",
-              transform: "scale(1,1)",
-              cursor: "pointer",
+              height: "70%", // Image takes 70% height of the parent
+              overflow: "hidden",
             }}
-            width={500}
-            height={500}
-          />
+          >
+            <Image
+              alt={title}
+              src={src}
+              onLoad={imageLoaded}
+              loading="lazy"
+              decoding="sync"
+              style={{
+                position: "absolute",
+                inset: 0,
+                objectFit: "cover",
+                opacity: current === index ? 1 : 0.5,
+                transition: "opacity 0.7s ease-in-out",
+                transform: "scale(1,1)",
+                cursor: "pointer",
+              }}
+              fill
+            />
+          </Box>
+
+          {/* Description Section */}
+          <Box
+            sx={{
+              flex: 1,
+              padding: "16px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "flex-start",
+              color: "white",
+              fontSize: "16px",
+              textAlign: "center",
+              overflow: isExpanded ? "none" : "hidden",
+              height: isExpanded ? "auto" : "50px", // Collapsed height
+              transition: "height 0.3s ease-in-out",
+            }}
+          >
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+            quidem quis rem reiciendis officiis doloribus cupiditate id
+            repellendus laudantium at. Fugit sequi culpa reiciendis aperiam
+            rerum saepe ea perferendis veniam.
+          </Box>
+
+          {/* Show More Button */}
+          <Button
+            onClick={() => setIsExpanded(!isExpanded)}
+            sx={{
+              color: "white",
+              margin: "8px",
+              fontSize: "14px",
+              textTransform: "none",
+            }}
+          >
+            {isExpanded ? "Show Less" : "Show More"}
+          </Button>
         </Box>
       </Box>
     </Box>
@@ -190,7 +236,6 @@ export default function Carousel({ slides }: CarouselProps) {
     }
   };
   const handlePointerDown = (event: React.PointerEvent) => {
-    console.log("point down");
     startXRef.current = event.clientX;
     console.log(startXRef);
     offsetXRef.current = 0;
