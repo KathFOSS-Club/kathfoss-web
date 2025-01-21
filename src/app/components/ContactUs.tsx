@@ -43,12 +43,12 @@ export default function ContactUs() {
           justifyContent: "space-between",
           alignItems: "flex-start",
           flexWrap: "wrap",
-          backgroundColor: "#0a192f",
+          backgroundColor: "rgb(25, 22, 49)",
           color: "#fff",
           padding: 4,
           borderRadius: "8px",
           fontFamily: "'Poppins', sans-serif",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+          boxShadow: "0 4px 8px rgb(25, 22, 49)",
           margin: "50px auto",
           maxWidth: "1200px",
         }}
@@ -269,7 +269,7 @@ export default function ContactUs() {
               fullWidth
               type="submit"
               sx={{
-                backgroundColor: "#87CEFA",
+                backgroundColor: "rgb(25, 22, 49)",
                 "&:hover": {
                   backgroundColor: "#47e1a5",
                 },
