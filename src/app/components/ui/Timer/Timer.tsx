@@ -35,7 +35,7 @@ export default function Timer() {
     seconds: 0,
   });
 
-  const targetDate = new Date("2025-01-17T17:30:00Z");
+  const targetDate = new Date("2025-01-29T17:30:00Z");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -53,9 +53,16 @@ export default function Timer() {
     <Box
       sx={{
         display: "flex",
+        justifyContent: "center",
         alignItems: "center",
-        gap: "1rem",
-        marginTop: "5rem",
+        gap: {
+          xs: "0.5rem",
+          sm: "1rem",
+        },
+        marginTop: {
+          xs: "1.5rem",
+          sm: "3rem",
+        },
       }}
     >
       <FormatTime value={time.days} />

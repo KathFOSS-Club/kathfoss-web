@@ -75,12 +75,16 @@ const MainTheme = createTheme({
           padding: "8px 20px",
         },
         containedPrimary: {
-          backgroundColor: "#FFE401",
-          color: "#000000",
+          backgroundColor: "#2A2936",
+          color: "#ffffff",
           "&:hover": {
-            backgroundColor: "#FFD700",
+            backgroundColor: "#2c2a44",
+          },
+          "&:focus": {
+            outline: "none",
           },
         },
+
         outlinedPrimary: {
           borderColor: "#696969",
           color: "#FFFFFF",
