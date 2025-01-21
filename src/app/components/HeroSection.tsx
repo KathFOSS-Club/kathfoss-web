@@ -28,7 +28,7 @@ export default function HeroSection() {
           color: "#898686",
         }}
       >
-        “Code, Collaborate, Conquer”
+        “Code, Collaborate, Contribute”
       </Typography>
       <Timer />
     </Box>

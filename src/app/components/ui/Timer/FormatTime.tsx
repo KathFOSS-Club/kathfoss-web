@@ -7,23 +7,23 @@ export default function FormatTime({ value }: { value: number }) {
     <Typography
       sx={{
         fontSize: {
-          xs: "2rem", // Smaller font size for extra-small screens
-          sm: "3.6rem", // Default font size for small screens and above
+          xs: "2rem", 
+          sm: "3.6rem",
         },
         textAlign: "center",
         lineHeight: {
-          xs: "2.5rem", // Adjusted line height for smaller screens
-          sm: "4rem", // Default line height for larger screens
+          xs: "2.5rem", 
+          sm: "4rem"
         },
         backgroundColor: "secondary.main",
         fontFamily: "DS-Digital, sans-serif",
         width: {
-          xs: "4rem", // Smaller width for extra-small screens
-          sm: "6rem", // Default width for larger screens
+          xs: "4rem",
+          sm: "6rem", 
         },
         paddingBottom: {
-          xs: "8px", // Smaller padding for smaller screens
-          sm: "12px", // Default padding for larger screens
+          xs: "8px", 
+          sm: "12px",
         },
         borderRadius: 3,
       }}

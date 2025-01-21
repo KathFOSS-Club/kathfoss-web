@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
-import { UpcomingEvents as events } from "../data/UpcomingEvents";
+import { upcomingEvents as events } from "../data/upcoming-events";
 
 export default function UpcomingEvents() {
   return (

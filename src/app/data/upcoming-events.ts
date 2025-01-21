@@ -1,4 +1,4 @@
-export const UpcomingEvents = [
+export const upcomingEvents = [
   {
     title: "Introducing Ucharan AI",
     description: "Event details: 20th Jan, 2025",
