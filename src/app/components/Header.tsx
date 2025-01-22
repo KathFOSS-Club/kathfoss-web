@@ -31,7 +31,7 @@ export default function Header() {
 
   return (
     <AppBar
-      position="sticky"
+      position="fixed"
       elevation={isScrolled ? 2 : 0}
       sx={{
         backgroundColor: isScrolled ? "rgb(24, 22, 48,0.8)" : "transparent",
