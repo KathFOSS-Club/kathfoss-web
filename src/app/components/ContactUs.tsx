@@ -1,3 +1,4 @@
+"use client";
 import { Box, Typography, TextField, Button, IconButton } from "@mui/material";
 import React from "react";
 import {
@@ -11,8 +12,40 @@ import {
 } from "@mui/icons-material";
 import { FaDiscord } from "react-icons/fa";
 import Image from "next/image";
+import { ContactFormType, contactSchema } from "@/utils/contactSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 
 export default function ContactUs() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<ContactFormType>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: undefined,
+      email: undefined,
+      phone: undefined,
+      message: undefined,
+    },
+    mode: "onChange",
+  });
+  const handleClick = async (data: ContactFormType) => {
+    try {
+      await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      reset();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Box sx={{ padding: 2 }}>
       <Typography
@@ -86,7 +119,7 @@ export default function ContactUs() {
                 kathfoss@kathford.edu.np
               </Typography>
             </Box>
-            <Box
+            {/*<Box
               sx={{
                 display: "flex",
                 alignItems: "center",
@@ -98,7 +131,7 @@ export default function ContactUs() {
               <Typography variant="body1" sx={{ color: "#87CEFA" }}>
                 9774444444
               </Typography>
-            </Box>
+            </Box>*/}
             <Box
               sx={{
                 display: "flex",
@@ -157,7 +190,7 @@ export default function ContactUs() {
             </IconButton>
             <IconButton sx={{ color: "#87CEFA" }}>
               <a
-                href="https://discord.com/channels/1236716690855825490/1236716691082444955"
+                href="https://discord.gg/5TPSezJadW"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -191,6 +224,7 @@ export default function ContactUs() {
         >
           <Box
             component="form"
+            onSubmit={handleSubmit(handleClick)}
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -201,6 +235,9 @@ export default function ContactUs() {
               Name
             </Typography>
             <TextField
+              {...register("name")}
+              error={!!errors.name}
+              helperText={errors.name?.message}
               label="Enter your Name"
               variant="outlined"
               fullWidth
@@ -217,6 +254,9 @@ export default function ContactUs() {
               Phone Number
             </Typography>
             <TextField
+              {...register("phone")}
+              error={!!errors.phone}
+              helperText={errors.phone?.message}
               label="Enter your Phone Number"
               variant="outlined"
               fullWidth
@@ -233,6 +273,9 @@ export default function ContactUs() {
               Email
             </Typography>
             <TextField
+              {...register("email")}
+              error={!!errors.email}
+              helperText={errors.email?.message}
               label="Enter your Email"
               variant="outlined"
               fullWidth
@@ -249,6 +292,9 @@ export default function ContactUs() {
               Message
             </Typography>
             <TextField
+              {...register("message")}
+              error={!!errors.message}
+              helperText={errors.message?.message}
               label="Message"
               variant="outlined"
               fullWidth
