@@ -9,6 +9,7 @@ import {
   HighlightedProjects,
   Team,
   UpcomingEvents,
+  SponsorSection,
 } from "./components";
 
 import React from "react";
@@ -40,6 +41,9 @@ export default async function Home() {
 
       {/* Team */}
       <Team />
+
+      {/* Sponsor Section */}
+      <SponsorSection />
 
       {/* Highlighted Projects */}
       <HighlightedProjects />
