@@ -21,9 +21,8 @@ export default async function Home() {
         scrollbarWidth: "none",
         "&::-webkit-scrollbar": {
           display: "none",
-
         },
-        scrollBehavior:"smooth"
+        scrollBehavior: "smooth",
       }}
     >
       {/* Header */}
