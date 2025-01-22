@@ -193,7 +193,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
             <Typography
               variant="h4"
               sx={{
-                fontWeight: "bold",
+                fontWeight: "600",
                 fontSize: { sm: "24px", xs: "16px" },
                 marginBottom: "6px",
                 textAlign: "center",
