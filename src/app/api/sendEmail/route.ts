@@ -1,6 +1,6 @@
 import { Resend } from 'resend';
 import { z } from 'zod';
-
+import { contactSchema } from '@/utils/contactSchema';
 const resend = new Resend(process.env.RESEND_API_KEY!);
 
 export async function POST(req: Request) {
