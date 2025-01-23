@@ -13,7 +13,7 @@ import { upcomingEvents as events } from "../data/upcoming-events";
 
 export default function UpcomingEvents() {
   return (
-    <Box sx={{ padding: 4, marginTop: 10 }}>
+    <Box sx={{ display: "block", marginTop: 15 }}>
       <Typography
         variant="h2"
         component="h2"
@@ -21,7 +21,14 @@ export default function UpcomingEvents() {
         gutterBottom
         sx={{ fontWeight: "600", marginBottom: 3 }}
       >
-        UPCOMING EVENTS
+        UPCOMING{" "}
+        <Typography
+          variant="h2"
+          component="span"
+          sx={{ color: "#009FE3", fontWeight: "600" }}
+        >
+          EVENTS
+        </Typography>
       </Typography>
 
       <Grid container spacing={5} justifyContent="center" alignItems="center">
