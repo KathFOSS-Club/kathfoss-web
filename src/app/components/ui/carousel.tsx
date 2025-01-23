@@ -97,7 +97,6 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
             lg: isExpanded ? "38rem" : "32rem",
             xl: isExpanded ? "46rem" : "39.5rem",
           },
-
           marginX: "4vmin",
           zIndex: 10,
           transform:
@@ -131,6 +130,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
             flexDirection: "column",
           }}
         >
+          {/* Image Section */}
           <Box
             sx={{
               position: "relative",
@@ -142,6 +142,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
                 lg: "26rem",
                 xl: "33.5rem",
               },
+
               overflow: "hidden",
               padding: "16px",
               boxSizing: "border-box",
@@ -201,6 +202,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
                 textAlign: "center",
                 width: "100%",
                 color: "grey.300",
+
               }}
             >
               {title}
