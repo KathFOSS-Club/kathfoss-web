@@ -13,10 +13,10 @@ interface Props {
 export default function Starfield(props: Props) {
 	const {
 		speedFactor = 0.05,
-		backgroundColor = 'black',
-		particleColor = '#f272c8',
-		particleCount = 3000,
-		particleSize=1.2, //sweetspot
+		backgroundColor = '#0E1322',
+		particleColor = '#ececec',
+		particleCount = 900,
+		particleSize=1.1, 
 	} = props;
 
 	const canvasRef = useRef<HTMLCanvasElement | null>(null);

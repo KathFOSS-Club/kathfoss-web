@@ -29,11 +29,7 @@ export default async function RootLayout({
 <body className={`${poppins.variable} antialiased`}>
 
         <Providers>
-          <StarField
-            starCount={1000}
-            starColor={[255, 255, 255]}
-            speedFactor={0.05}
-          />
+          <StarField/>
           <Box sx={{ position: "relative", zIndex: 1 }}>{children}</Box>
         </Providers>
       </body>
