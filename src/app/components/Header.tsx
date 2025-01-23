@@ -31,12 +31,15 @@ export default function Header() {
 
   return (
     <AppBar
-      position="sticky"
+      position="fixed"
       elevation={isScrolled ? 2 : 0}
       sx={{
-        backgroundColor: isScrolled ? "rgb(24, 22, 48,0.8)" : "transparent",
+        backgroundColor: isScrolled ? "rgba(24, 22, 48, 0.8)" : "transparent",
+        backdropFilter: isScrolled ? "blur(10px)" : "none",
         boxShadow: isScrolled ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none",
         padding: "10px 20px",
+        transition:
+          "background-color 0.3s, backdrop-filter 0.3s, box-shadow 0.3s",
       }}
     >
       <Toolbar sx={{ justifyContent: "space-between", alignItems: "center" }}>
