@@ -33,10 +33,9 @@ export default function MeetOurTeamPage() {
           alignItems: "center",
           minHeight: "100vh",
           padding: "2rem",
-          marginTop: "5rem",
         }}
       >
-        <Box sx={{ width: "100%", maxWidth: "1400px", margin: "0 auto" }}>
+        <Box sx={{ width: "100%", maxWidth: "1400px", margin: "5rem auto" }}>
           <Typography
             variant="h2"
             component="h2"
