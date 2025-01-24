@@ -7,6 +7,7 @@ export const EventsHighlight = () => {
     <Box
       sx={{
         display: "block",
+        marginTop: "8rem",
       }}
     >
       <Box
@@ -29,7 +30,6 @@ export const EventsHighlight = () => {
           >
             HIGHLIGHTS
           </Typography>
-
           <Typography
             variant="h6"
             component="h6"
@@ -42,7 +42,6 @@ export const EventsHighlight = () => {
           >
             Recap the best and most memorable moments!
           </Typography>
-
         </Typography>
       </Box>
 

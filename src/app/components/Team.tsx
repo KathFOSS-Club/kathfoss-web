@@ -32,6 +32,7 @@ const Team = () => {
         alignItems: "center",
         minHeight: "100vh",
         padding: "2rem",
+        marginTop: "8rem",
       }}
       id="team"
     >
