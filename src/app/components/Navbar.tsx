@@ -53,7 +53,7 @@ const Navbar = () => {
         <div className="flex items-center space-x-8">
           <Link href="/" className="transition-transform">
             <Image
-              src="/public/assets/logo.svg"
+              src="/assets/logo.svg"
               alt="kathfoss-logo"
               width={210}
               height={30}
