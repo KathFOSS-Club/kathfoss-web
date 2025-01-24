@@ -12,6 +12,7 @@ import {
 } from "./components";
 
 import React from "react";
+import Testimonial from "./components/Testimonial";
 
 export default async function Home() {
   return (
@@ -37,6 +38,9 @@ export default async function Home() {
 
       {/* Upcoming Events */}
       <UpcomingEvents />
+
+      {/* testtimonials */}
+      <Testimonial />
 
       {/* Team */}
       <Team />
