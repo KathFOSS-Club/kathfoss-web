@@ -104,8 +104,9 @@ export const teamMembers = {
     {
       name: "Samrat Neupane",
       role: "Supervisor",
-      image: "/images/MeetOurTeam/ram.png",
-      description: "Expert",
+      image: "/images/MeetOurTeam/project-supervisor1.png",
+      description:
+        "Samrat Neupane is a highly skilled and experienced software developer with over 5 years of expertise in web development and technical skills encompassing a wide range of languages, frameworks, and concepts. He has a strong foundation in Typescript, JavaScript, Go, Mongodb, Postgresql, HTML, CSS, Python, C, and C++, and have worked with various frameworks and libraries including Mongoose, Express, NEXT, Objectionjs, Knex, React, Nest, FastAPI, Flask and Node.js, among others. His projects demonstrate his ability to develop complex systems and applications, and he is constantly expanding his knowledge by learning new technologies.",
       socialMedia: {
         linkedin: "https://linkedin.com",
         github: "https://github.com",
@@ -114,7 +115,7 @@ export const teamMembers = {
     {
       name: "Abhisek Dahal",
       role: "Supervisor",
-      image: "/images/MeetOurTeam/ram.png",
+      image: "/images/MeetOurTeam/project-supervisor2.jpg",
       description: "Specialist",
       socialMedia: {
         linkedin: "https://linkedin.com",
@@ -124,17 +125,19 @@ export const teamMembers = {
     {
       name: "Anish Shrestha",
       role: "Supervisor",
-      image: "/images/MeetOurTeam/sita.png",
-      description: "....",
+      image: "/images/MeetOurTeam/project-supervisor4.png",
+      description: `Anish Shrestha is a seasoned developer and cofounder of Asteroid Studio Pvt. Ltd., with a strong skill set in project management, system architecture, and full-stack development. Proficient in technologies like ReactJS, NextJS, NestJS, and Flutter, he specializes in creating scalable and innovative web and mobile applications. His experience includes developing AI-driven recommendation systems, secure proxy-selling platforms, and real-time chat applications, reflecting his ability to deliver high-quality solutions for complex challenges. 
+        
+        As a cofounder, Anish combines technical expertise with leadership to effectively manage teams, design efficient systems, and execute projects that align with technical and business objectives. Known for his adaptability, problem-solving skills, and commitment to excellence, he consistently drives impactful, technology-driven innovations.`,
       socialMedia: {
-        linkedin: "https://linkedin.com",
-        github: "https://github.com",
+        linkedin: "https://www.linkedin.com/in/anishshrestha986/",
+        github: "https://github.com/anishshrestha986",
       },
     },
     {
       name: "Aayush Ghimire",
       role: "Supervisor",
-      image: "/images/MeetOurTeam/gita.png",
+      image: "/images/MeetOurTeam/project-supervisor3.jpg",
       description: "....",
       socialMedia: {
         linkedin: "https://linkedin.com",
