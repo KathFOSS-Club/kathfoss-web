@@ -39,3 +39,21 @@ jobs:
           alias-domains: |
             preview-kathfoss.vercel.app
             preview-{{PR_NUMBER}}-kathfoss.vercel.app
+
+      - name: Comment on PR with Deployment Link
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+            });
+            const deploymentLink = `https://preview-${context.payload.pull_request.number}-kathfoss.vercel.app`;
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `✔ Deploy Preview for ${pr.head.ref} ready!\n\n**Deploy Preview**: ${deploymentLink}`,
+            });
