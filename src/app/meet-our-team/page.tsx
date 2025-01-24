@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Header } from '../components';
+import { Header } from "../components";
 import { Box, Typography, Grid2 } from "@mui/material";
 import { teamMembers } from "../data/meet-our-team";
 import { TeamMemberProps } from "@/type/team-memeber";
@@ -10,7 +10,9 @@ import TeamMemberModal from "@/components/ui/MeetOurTeam/TeamMemberModal";
 
 export default function MeetOurTeamPage() {
   const [open, setOpen] = useState(false);
-  const [selectedMember, setSelectedMember] = useState<TeamMemberProps | null>(null);
+  const [selectedMember, setSelectedMember] = useState<TeamMemberProps | null>(
+    null
+  );
 
   const handleOpen = (member: TeamMemberProps) => {
     setSelectedMember(member);
@@ -31,20 +33,40 @@ export default function MeetOurTeamPage() {
           justifyContent: "center",
           alignItems: "center",
           minHeight: "100vh",
+          padding: "2rem",
+          marginTop: "5rem",
         }}
       >
-        <Box sx={{ width: "80%" }}>
-          <Typography variant="h2" align="center" gutterBottom>
-            Meet Our Team
+        <Box sx={{ width: "100%", maxWidth: "1400px", margin: "0 auto" }}>
+          <Typography
+            variant="h2"
+            component="h2"
+            align="center"
+            gutterBottom
+            sx={{ fontWeight: "600", marginTop: 3 }}
+          >
+            MAIN{" "}
+            <Typography
+              variant="h2"
+              component="span"
+              sx={{ color: "#009FE3", fontWeight: "600" }}
+            >
+              COMMITTEE
+            </Typography>
           </Typography>
-          <br />
-          <Typography variant="h2" align="center" gutterBottom>
-            Main Committee
-          </Typography>
-          <br />
+
+          {/* Centered First Member */}
+          <Box sx={{ display: "flex", justifyContent: "center", mb: 3 }}>
+            <TeamMember
+              member={teamMembers.mainCommittee[0]}
+              handleOpen={handleOpen}
+              key={0} // Ensure unique key
+            />
+          </Box>
+
+          {/* Grid for Remaining Members */}
           <Grid2
             container
-            spacing={2}
             sx={{
               display: "grid",
               gridTemplateColumns: {
@@ -53,34 +75,49 @@ export default function MeetOurTeamPage() {
                 md: "repeat(3, 1fr)",
                 lg: "repeat(4, 1fr)",
               },
-              gap: "1rem",
-              justifyContent: "center", // Ensures horizontal centering of grid items
-              alignItems: "center", // Ensures vertical centering of grid items
+              gap: { xs: 1, md: 2 },
+              justifyItems: "center",
+              padding: { xs: "0.5rem", md: "1rem" },
             }}
           >
-            {teamMembers.mainCommittee.map((member, index) => (
-              <TeamMember key={index} member={member} handleOpen={handleOpen} />
+            {teamMembers.mainCommittee.slice(1).map((member, index) => (
+              <TeamMember
+                key={index + 1} // Adjust key to maintain original indices
+                member={member}
+                handleOpen={handleOpen}
+              />
             ))}
           </Grid2>
-          <br />
-          <Typography variant="h2" align="center" gutterBottom>
-            Project Supervisors
+          <Typography
+            variant="h2"
+            component="h2"
+            align="center"
+            gutterBottom
+            sx={{ fontWeight: "600", marginTop: 3 }}
+          >
+            PROJECT{" "}
+            <Typography
+              variant="h2"
+              component="span"
+              sx={{ color: "#009FE3", fontWeight: "600" }}
+            >
+              SUPERVISORS
+            </Typography>
           </Typography>
           <br />
           <Grid2
             container
-            spacing={2}
             sx={{
               display: "grid",
               gridTemplateColumns: {
                 xs: "repeat(1, 1fr)",
                 sm: "repeat(2, 1fr)",
                 md: "repeat(3, 1fr)",
-                lg: "repeat(4, 1fr)",
+                lg: "repeat(4, 1fr)", // 4 columns on large screens
               },
-              gap: "1rem",
-              justifyContent: "center", // Ensures horizontal centering of grid items
-              alignItems: "center", // Ensures vertical centering of grid items
+              gap: { xs: 1, md: 2 },
+              justifyItems: "center",
+              padding: { xs: "0.5rem", md: "1rem" },
             }}
           >
             {teamMembers.projectSupervisors.map((member, index) => (
@@ -88,24 +125,44 @@ export default function MeetOurTeamPage() {
             ))}
           </Grid2>
           <br />
-          <Typography variant="h2" align="center" gutterBottom>
-            Social Media and Communications
+          <Typography
+            variant="h2"
+            component="h2"
+            align="center"
+            gutterBottom
+            sx={{ fontWeight: "600", marginTop: 3 }}
+          >
+            SOCIAL{" "}
+            <Typography
+              variant="h2"
+              component="span"
+              sx={{ color: "#009FE3", fontWeight: "600" }}
+            >
+              MEDIA{" "}
+            </Typography>
+            AND{" "}
+            <Typography
+              variant="h2"
+              component="span"
+              sx={{ color: "#009FE3", fontWeight: "600" }}
+            >
+              COMMUNICATIONS
+            </Typography>
           </Typography>
           <br />
           <Grid2
             container
-            spacing={2}
             sx={{
               display: "grid",
               gridTemplateColumns: {
                 xs: "repeat(1, 1fr)",
                 sm: "repeat(2, 1fr)",
                 md: "repeat(3, 1fr)",
-                lg: "repeat(4, 1fr)",
+                lg: "repeat(4, 1fr)", // 4 columns on large screens
               },
-              gap: "1rem",
-              justifyContent: "center", // Ensures horizontal centering of grid items
-              alignItems: "center", // Ensures vertical centering of grid items
+              gap: { xs: 1, md: 2 },
+              justifyItems: "center",
+              padding: { xs: "0.5rem", md: "1rem" },
             }}
           >
             {teamMembers.socialMedia.map((member, index) => (
@@ -113,24 +170,36 @@ export default function MeetOurTeamPage() {
             ))}
           </Grid2>
           <br />
-          <Typography variant="h2" align="center" gutterBottom>
-            Executive Members
+          <Typography
+            variant="h2"
+            component="h2"
+            align="center"
+            gutterBottom
+            sx={{ fontWeight: "600", marginTop: 3 }}
+          >
+            EXECUTIVE{" "}
+            <Typography
+              variant="h2"
+              component="span"
+              sx={{ color: "#009FE3", fontWeight: "600" }}
+            >
+              MEMBERS
+            </Typography>
           </Typography>
           <br />
           <Grid2
             container
-            spacing={2}
             sx={{
               display: "grid",
               gridTemplateColumns: {
                 xs: "repeat(1, 1fr)",
                 sm: "repeat(2, 1fr)",
                 md: "repeat(3, 1fr)",
-                lg: "repeat(4, 1fr)",
+                lg: "repeat(4, 1fr)", // 4 columns on large screens
               },
-              gap: "1rem",
-              justifyContent: "center", // Ensures horizontal centering of grid items
-              alignItems: "center", // Ensures vertical centering of grid items
+              gap: { xs: 1, md: 2 },
+              justifyItems: "center",
+              padding: { xs: "0.5rem", md: "1rem" },
             }}
           >
             {teamMembers.executiveMembers.map((member, index) => (
@@ -138,7 +207,11 @@ export default function MeetOurTeamPage() {
             ))}
           </Grid2>
           <br />
-          <TeamMemberModal open={open} handleClose={handleClose} member={selectedMember} />
+          <TeamMemberModal
+            open={open}
+            handleClose={handleClose}
+            member={selectedMember}
+          />
         </Box>
       </Box>
     </>

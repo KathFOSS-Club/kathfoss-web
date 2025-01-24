@@ -1,20 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
-import { Box, Typography, Button, Modal, Grid2 } from "@mui/material";
+import { Box, Typography, Button, Grid2 } from "@mui/material";
 import Link from "next/link";
 import { teamMembers } from "../data/meet-our-team";
-import TeamMember from "@/components/ui/MeetOurTeam/TeamMember";
 import TeamMemberModal from "@/components/ui/MeetOurTeam/TeamMemberModal";
 import { TeamMemberProps } from "@/type/team-memeber";
+import TeamMember from "./ui/MeetOurTeam/TeamMember";
 
-interface TeamProps {
-  showAll?: boolean;
-}
-
-const Team: React.FC<TeamProps> = ({ showAll }) => {
+const Team = () => {
   const [open, setOpen] = useState(false);
-  const [selectedMember, setSelectedMember] = useState<TeamMemberProps | null>(null);
+  const [selectedMember, setSelectedMember] = useState<TeamMemberProps | null>(
+    null
+  );
 
   const handleOpen = (member: TeamMemberProps) => {
     setSelectedMember(member);
@@ -27,18 +25,59 @@ const Team: React.FC<TeamProps> = ({ showAll }) => {
   };
 
   return (
-    <Box sx={{ padding: "2rem 5%" }}>
-      <Typography variant="h2" align="center" gutterBottom>
-        Meet Our Team
-      </Typography>
-      <Box mt={4}>
-        <Box mb={6}>
-          <Grid2 container spacing={2} justifyContent="center">
-            {teamMembers.mainCommittee.slice(0, showAll ? undefined : 9).map((member, index) => (
-              <TeamMember key={index} member={member} handleOpen={handleOpen} />
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+        padding: "2rem",
+      }}
+    >
+      <Box sx={{ width: "100%", maxWidth: "1200px", margin: "0 auto" }}>
+        <Typography
+          variant="h2"
+          component="h2"
+          align="center"
+          gutterBottom
+          sx={{ fontWeight: "600", marginBottom: 3 }}
+        >
+          MEET OUR{" "}
+          <Typography
+            variant="h2"
+            component="span"
+            sx={{ color: "#009FE3", fontWeight: "600" }}
+          >
+            TEAM
+          </Typography>
+        </Typography>
+
+        {/* Main Committee Section */}
+        <Box sx={{ marginTop: 4 }}>
+          <Grid2
+            container
+            sx={{
+              display: "grid",
+              gridTemplateColumns: {
+                xs: "repeat(1, 1fr)",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
+              },
+              gap: { xs: 2, md: 2 },
+              justifyItems: "center",
+              padding: { xs: "0.5rem", md: "1rem" },
+            }}
+          >
+            {teamMembers.mainCommittee.map((member, index) => (
+              <TeamMember
+                key={index}
+                member={member}
+                handleOpen={() => handleOpen(member)}
+              />
             ))}
           </Grid2>
         </Box>
+
         <Box textAlign="center" mt={4}>
           <Link href="/meet-our-team" passHref>
             <Button variant="contained" color="secondary">
@@ -46,8 +85,12 @@ const Team: React.FC<TeamProps> = ({ showAll }) => {
             </Button>
           </Link>
         </Box>
-      </Box> 
-      <TeamMemberModal open={open} handleClose={handleClose} member={selectedMember} />
+      </Box>
+      <TeamMemberModal
+        open={open}
+        handleClose={handleClose}
+        member={selectedMember}
+      />
     </Box>
   );
 };
