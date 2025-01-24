@@ -13,6 +13,7 @@ import {
 
 import React from "react";
 import ContactUs from "./components/ContactUs";
+import About from "@/components/about";
 
 export default async function Home() {
   return (
@@ -31,7 +32,10 @@ export default async function Home() {
 
       {/* Hero Section */}
       <HeroSection />
+      {/* Hero Section */}
 
+      {/* <About />*/}
+      <About />
       {/* Event Highlights */}
       <EventsHighlight />
 
@@ -39,7 +43,7 @@ export default async function Home() {
       <UpcomingEvents />
 
       {/* Team */}
-      <Team  />
+      <Team />
 
       {/* Highlighted Projects */}
       <HighlightedProjects />

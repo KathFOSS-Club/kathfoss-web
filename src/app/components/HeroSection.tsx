@@ -1,178 +1,149 @@
-import { Box, Typography, Button } from "@mui/material";
+"use client";
+
+import React, { useState } from "react";
+import { Box, Typography, Button, Divider } from "@mui/material";
 import Timer from "./ui/Timer/Timer";
+import { useRouter } from "next/navigation";
+import AboutKathfoss from "@/components/about";
 
 export default function HeroSection() {
+  const [showAbout, setShowAbout] = useState(false);
+
+  if (showAbout) {
+    return <AboutKathfoss />;
+  }
+
   return (
     <Box
       sx={{
         textAlign: "center",
         my: "8rem",
-        padding: { xs: "1rem", sm: "2rem" },
       }}
     >
       {/* Main Heading */}
       <Typography
         variant="h1"
         sx={{
-          fontSize: { sm: "72px !important", xs: "45px" },
+          fontSize: { sm: "72px", xs: "45px" },
           fontWeight: "bold",
-          letterSpacing: { sm: "20px", xs: "10px" },
-          paddingLeft: "16px",
+          letterSpacing: "4px",
+          textTransform: "uppercase",
         }}
       >
         KATHFOSS
       </Typography>
 
-      {/* Tagline */}
+      {/* Subtitle */}
       <Typography
         sx={{
-          fontSize: { sm: "18px !important", xs: "10px" },
-          fontWeight: "bold",
-          letterSpacing: { sm: "6px", xs: "5px" },
+          fontSize: { sm: "20px", xs: "12px" },
+          fontWeight: "600",
+          letterSpacing: "3px",
           color: "#898686",
-          marginTop: "1rem",
+          mt: "1rem",
         }}
       >
         “Code, Collaborate, Contribute”
       </Typography>
 
-      {/* About Us Section */}
-      <Box id="about-us" sx={{ marginTop: "4rem" }}>
+      {/* Timer */}
+      <Timer />
+
+      {/* Additional Section */}
+      <Box
+        sx={{
+          mt: "6rem",
+          textAlign: "center",
+          px: "2rem",
+        }}
+      >
+        {/* Description */}
         <Typography
-          variant="h6"
           sx={{
-            fontSize: { sm: "24px", xs: "16px" },
-            fontWeight: "normal",
-            color: "#fff",
-            marginTop: "2rem",
-            maxWidth: "800px",
-            margin: "2rem auto",
-            lineHeight: "1.6",
+            fontSize: { sm: "25px", xs: "20px" },
+            fontWeight: "500",
+            color: "#666",
+            lineHeight: "1.8",
+            mb: "2rem",
           }}
         >
           A community for open-source enthusiasts fostering collaboration and
           contribution.
         </Typography>
+
+        {/* Line Divider */}
+        <Divider
+          sx={{
+            my: "2rem",
+            width: "80%",
+            mx: "auto",
+            borderColor: "#ccc",
+            borderWidth: "1px",
+          }}
+        />
+
+        {/* Statistics */}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "3rem",
+            flexWrap: "wrap",
+          }}
+        >
+          {[
+            { label: "Projects", value: "50+" },
+            { label: "Contributors", value: "500+" },
+            { label: "Events Organized", value: "40+" },
+            { label: "Years Active", value: "15+" },
+            { label: "Community Members", value: "500+" },
+          ].map((stat, index) => (
+            <Box key={index} sx={{ textAlign: "center" }}>
+              <Typography
+                variant="h4"
+                sx={{
+                  fontSize: { sm: "40px", xs: "28px" },
+                  fontWeight: "bold",
+                  color: "#333",
+                }}
+              >
+                {stat.value}
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: { sm: "20px", xs: "16px" },
+                  fontWeight: "500",
+                  color: "#666",
+                }}
+              >
+                {stat.label}
+              </Typography>
+            </Box>
+          ))}
+        </Box>
+
+        {/* Call-to-Action Button 
+        <Button
+          variant="contained"
+          sx={{
+            mt: "2rem",
+            backgroundColor: "#e91e63",
+            color: "#fff",
+            px: "2rem",
+            py: "0.8rem",
+            fontSize: { sm: "16px", xs: "14px" },
+            borderRadius: "25px",
+            textTransform: "uppercase",
+            fontWeight: "bold",
+            ":hover": {
+              backgroundColor: "#d81b60",
+            },
+          }}
+          onClick={() => setShowAbout(true)}
+        >
+          ABOUT KATHFOSS
+        </Button>*/}
       </Box>
-
-      {/* Statistics Section */}
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: { xs: "1rem", sm: "2rem" },
-          marginTop: "4rem",
-        }}
-      >
-        {/* Projects */}
-        <Box
-          sx={{
-            textAlign: "center",
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
-            borderRadius: "8px",
-            padding: "1rem",
-            minWidth: "120px",
-          }}
-        >
-          <Typography
-            variant="h3"
-            sx={{ fontSize: { sm: "48px", xs: "32px" }, color: "#009FE3" }}
-          >
-            2
-          </Typography>
-          <Typography variant="h6" sx={{ color: "#fff" }}>
-            Projects
-          </Typography>
-        </Box>
-
-        {/* Contributors */}
-        <Box
-          sx={{
-            textAlign: "center",
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
-            borderRadius: "8px",
-            padding: "1rem",
-            minWidth: "120px",
-          }}
-        >
-          <Typography
-            variant="h3"
-            sx={{ fontSize: { sm: "48px", xs: "32px" }, color: "#009FE3" }}
-          >
-            13
-          </Typography>
-          <Typography variant="h6" sx={{ color: "#fff" }}>
-            Contributors
-          </Typography>
-        </Box>
-
-        {/* Events Organized */}
-        <Box
-          sx={{
-            textAlign: "center",
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
-            borderRadius: "8px",
-            padding: "1rem",
-            minWidth: "120px",
-          }}
-        >
-          <Typography
-            variant="h3"
-            sx={{ fontSize: { sm: "48px", xs: "32px" }, color: "#009FE3" }}
-          >
-            50+
-          </Typography>
-          <Typography variant="h6" sx={{ color: "#fff" }}>
-            Events Organized
-          </Typography>
-        </Box>
-
-        {/* Years Active */}
-        <Box
-          sx={{
-            textAlign: "center",
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
-            borderRadius: "8px",
-            padding: "1rem",
-            minWidth: "120px",
-          }}
-        >
-          <Typography
-            variant="h3"
-            sx={{ fontSize: { sm: "48px", xs: "32px" }, color: "#009FE3" }}
-          >
-            15+
-          </Typography>
-          <Typography variant="h6" sx={{ color: "#fff" }}>
-            Years Active
-          </Typography>
-        </Box>
-
-        {/* Community Members */}
-        <Box
-          sx={{
-            textAlign: "center",
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
-            borderRadius: "8px",
-            padding: "1rem",
-            minWidth: "120px",
-          }}
-        >
-          <Typography
-            variant="h3"
-            sx={{ fontSize: { sm: "48px", xs: "32px" }, color: "#009FE3" }}
-          >
-            500+
-          </Typography>
-          <Typography variant="h6" sx={{ color: "#fff" }}>
-            Community Members
-          </Typography>
-        </Box>
-      </Box>
-
-      {/* Timer Component */}
-      <Timer />
     </Box>
   );
 }
