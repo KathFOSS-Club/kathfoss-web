@@ -30,7 +30,7 @@ const TeamMemberModal: React.FC<TeamMemberModalProps> = ({
           transform: "translate(-50%, -50%)",
           width: "100%",
           maxWidth: "800px",
-          height: "600px", // Fixed height for the modal
+          height: "600px",
           outline: "none",
           p: 2,
         }}
@@ -48,7 +48,7 @@ const TeamMemberModal: React.FC<TeamMemberModalProps> = ({
               position: "relative",
               display: "flex",
               gap: "2rem",
-              height: "100%", // Ensure the inner box takes full height
+              height: "100%",
             }}
           >
             <IconButton
@@ -67,7 +67,6 @@ const TeamMemberModal: React.FC<TeamMemberModalProps> = ({
               <CloseIcon />
             </IconButton>
 
-            {/* Left Column - Image */}
             <Box
               sx={{
                 flex: 1,
@@ -132,14 +131,13 @@ const TeamMemberModal: React.FC<TeamMemberModalProps> = ({
               </Box>
             </Box>
 
-            {/* Right Column - Content */}
             <Box
               sx={{
                 flex: 2,
                 textAlign: "left",
                 display: "flex",
                 flexDirection: "column",
-                height: "100%", // Ensure the content column takes full height
+                height: "100%",
               }}
             >
               <Typography
@@ -169,8 +167,8 @@ const TeamMemberModal: React.FC<TeamMemberModalProps> = ({
               <Box
                 sx={{
                   flex: 1,
-                  overflowY: "auto", // Make the description scrollable
-                  pr: 2, // Add padding to avoid text touching the scrollbar
+                  overflowY: "auto",
+                  pr: 2,
                 }}
               >
                 <Typography

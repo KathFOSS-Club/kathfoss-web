@@ -64,7 +64,6 @@ export default function MeetOurTeamPage() {
             />
           </Box>
 
-          {/* Grid for Remaining Members */}
           <Grid2
             container
             sx={{
@@ -82,7 +81,7 @@ export default function MeetOurTeamPage() {
           >
             {teamMembers.mainCommittee.slice(1).map((member, index) => (
               <TeamMember
-                key={index + 1} // Adjust key to maintain original indices
+                key={index + 1}
                 member={member}
                 handleOpen={handleOpen}
               />
@@ -113,7 +112,7 @@ export default function MeetOurTeamPage() {
                 xs: "repeat(1, 1fr)",
                 sm: "repeat(2, 1fr)",
                 md: "repeat(3, 1fr)",
-                lg: "repeat(4, 1fr)", // 4 columns on large screens
+                lg: "repeat(4, 1fr)",
               },
               gap: { xs: 1, md: 2 },
               justifyItems: "center",
@@ -158,7 +157,7 @@ export default function MeetOurTeamPage() {
                 xs: "repeat(1, 1fr)",
                 sm: "repeat(2, 1fr)",
                 md: "repeat(3, 1fr)",
-                lg: "repeat(4, 1fr)", // 4 columns on large screens
+                lg: "repeat(4, 1fr)",
               },
               gap: { xs: 1, md: 2 },
               justifyItems: "center",
@@ -195,7 +194,7 @@ export default function MeetOurTeamPage() {
                 xs: "repeat(1, 1fr)",
                 sm: "repeat(2, 1fr)",
                 md: "repeat(3, 1fr)",
-                lg: "repeat(4, 1fr)", // 4 columns on large screens
+                lg: "repeat(4, 1fr)",
               },
               gap: { xs: 1, md: 2 },
               justifyItems: "center",
