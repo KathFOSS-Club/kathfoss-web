@@ -8,52 +8,58 @@ import {
   FiUsers,
   FiTarget,
   FiCalendar,
-  FiBox,
 } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
 import {
   FiArchive,
   FiBookOpen,
-  FiCode,
   FiFileText,
   FiHeart,
   FiDollarSign,
   FiGithub,
   FiAward,
   FiClock,
-  FiBookmark,
-  FiMessageCircle,
   FiPackage,
   FiTool,
   FiDatabase,
 } from "react-icons/fi";
+import { Box } from "@mui/material";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // Handle navbar background on scroll
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-gray-800/95 backdrop-blur-sm shadow-lg" : "bg-gray-800"
-      } text-white text-lg h-20`}
+    <Box
+      component="header"
+      className={`fixed w-full z-50 transition-all duration-300 text-white text-lg h-20`}
+      sx={{
+        backgroundColor: isScrolled
+          ? "rgba(24, 22, 48, 0.8)"
+          : "rgba(24, 22, 48)",
+        backdropFilter: isScrolled ? "blur(10px)" : "none",
+        boxShadow: isScrolled ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none",
+        padding: "10px 20px",
+        transition:
+          "background-color 0.3s, backdrop-filter 0.3s, box-shadow 0.3s",
+      }}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center h-full max-w-screen-xl">
+      <div className="container mx-auto px-4 flex items-center justify-between h-full max-w-screen-xl">
         {/* Logo */}
-        <div className="flex items-center space-x-8">
-          <Link href="/" className="transition-transform">
+        <div className="flex items-center space-x-20">
+          <Link href="/" className="transition-transform flex-shrink-0">
             <Image
-              src="/public/assets/logo.svg"
+              src="/assets/logo.svg"
               alt="kathfoss-logo"
               width={210}
               height={30}
@@ -62,7 +68,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <nav className="hidden lg:flex space-x-8">
+          <nav className="hidden lg:flex space-x-8 mx-8">
             <Link href="/" className="nav-link">
               Home
             </Link>
@@ -300,26 +306,28 @@ const Navbar = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="hidden lg:flex items-center space-x-6">
-          <Link href="/joinus">
-            <button className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800">
-              Join Us
-            </button>
-          </Link>
-        </div>
+        <div className="flex items-center gap-6">
+          <div className="hidden lg:flex">
+            <Link href="/joinus">
+              <button className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium transition-all duration-300 transform hover:scale-105">
+                Join Us
+              </button>
+            </Link>
+          </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden focus:outline-none"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? (
-            <FiX className="w-8 h-8" />
-          ) : (
-            <FiMenu className="w-8 h-8" />
-          )}
-        </button>
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden focus:outline-none"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? (
+              <FiX className="w-8 h-8" />
+            ) : (
+              <FiMenu className="w-8 h-8" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -441,7 +449,7 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
-    </header>
+    </Box>
   );
 };
 export default Navbar;

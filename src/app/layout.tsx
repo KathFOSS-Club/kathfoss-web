@@ -1,11 +1,8 @@
 import Providers from "@/config/Providers";
 import "@/styles/globals.css";
-import type { Metadata } from "next";
-import { Poppins,Karla } from "next/font/google";
+import { Poppins, Karla } from "next/font/google";
 import { Box } from "@mui/material";
 import StarField from "./components/ParticleAnimation/StarField";
-
-
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -14,10 +11,6 @@ const poppins = Poppins({
   subsets: ["latin"],
 });
 
-const karla = Karla({
-  variable: "--font-karla",
-  preload: false,
-});
 // For SEO
 export const metadata = {
   title: "Kathfoss | Official Site",
@@ -52,10 +45,9 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-<body className={`${poppins.variable}${karla.variable} antialiased`}>
-
+      <body className={`${poppins.variable} antialiased`}>
         <Providers>
-          <StarField/>
+          <StarField />
           <Box sx={{ position: "relative", zIndex: 1 }}>{children}</Box>
         </Providers>
       </body>
