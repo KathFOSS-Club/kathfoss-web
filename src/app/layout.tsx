@@ -33,7 +33,6 @@ export default async function RootLayout({
         <Providers>
           <StarField/>
           <Box sx={{ position: "relative", zIndex: 1 }}>{children}</Box>
-          {children}
             <ToastContainer
               position="top-center"
               autoClose={3000}
