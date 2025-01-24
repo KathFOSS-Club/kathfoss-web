@@ -2,8 +2,10 @@ import Providers from "@/config/Providers";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import BackgroundAnimation from "@/app/components/ParticleAnimation/BackgroundAnimation";
 import { Box } from "@mui/material";
+import StarField from "./components/ParticleAnimation/StarField";
+
+
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -24,9 +26,10 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${poppins.variable} antialiased`}>
+<body className={`${poppins.variable} antialiased`}>
+
         <Providers>
-          <BackgroundAnimation />
+          <StarField/>
           <Box sx={{ position: "relative", zIndex: 1 }}>{children}</Box>
         </Providers>
       </body>

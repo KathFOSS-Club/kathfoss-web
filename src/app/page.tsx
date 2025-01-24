@@ -12,6 +12,7 @@ import {
 } from "./components";
 
 import React from "react";
+import ContactUs from "./components/ContactUs";
 
 export default async function Home() {
   return (
@@ -21,9 +22,8 @@ export default async function Home() {
         scrollbarWidth: "none",
         "&::-webkit-scrollbar": {
           display: "none",
-
         },
-        scrollBehavior:"smooth"
+        scrollBehavior: "smooth",
       }}
     >
       {/* Header */}
@@ -39,10 +39,13 @@ export default async function Home() {
       <UpcomingEvents />
 
       {/* Team */}
-      <Team />
+      <Team  />
 
       {/* Highlighted Projects */}
       <HighlightedProjects />
+
+      {/*contact */}
+      <ContactUs />
 
       {/* Footer */}
       <Footer />
