@@ -66,7 +66,15 @@ export default function HeroSection() {
         }}
       >
         {/* Projects */}
-        <Box sx={{ textAlign: "center" }}>
+        <Box
+          sx={{
+            textAlign: "center",
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            borderRadius: "8px",
+            padding: "1rem",
+            minWidth: "120px",
+          }}
+        >
           <Typography
             variant="h3"
             sx={{ fontSize: { sm: "48px", xs: "32px" }, color: "#009FE3" }}
@@ -79,7 +87,15 @@ export default function HeroSection() {
         </Box>
 
         {/* Contributors */}
-        <Box sx={{ textAlign: "center" }}>
+        <Box
+          sx={{
+            textAlign: "center",
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            borderRadius: "8px",
+            padding: "1rem",
+            minWidth: "120px",
+          }}
+        >
           <Typography
             variant="h3"
             sx={{ fontSize: { sm: "48px", xs: "32px" }, color: "#009FE3" }}
@@ -92,7 +108,15 @@ export default function HeroSection() {
         </Box>
 
         {/* Events Organized */}
-        <Box sx={{ textAlign: "center" }}>
+        <Box
+          sx={{
+            textAlign: "center",
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            borderRadius: "8px",
+            padding: "1rem",
+            minWidth: "120px",
+          }}
+        >
           <Typography
             variant="h3"
             sx={{ fontSize: { sm: "48px", xs: "32px" }, color: "#009FE3" }}
@@ -105,7 +129,15 @@ export default function HeroSection() {
         </Box>
 
         {/* Years Active */}
-        <Box sx={{ textAlign: "center" }}>
+        <Box
+          sx={{
+            textAlign: "center",
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            borderRadius: "8px",
+            padding: "1rem",
+            minWidth: "120px",
+          }}
+        >
           <Typography
             variant="h3"
             sx={{ fontSize: { sm: "48px", xs: "32px" }, color: "#009FE3" }}
@@ -118,7 +150,15 @@ export default function HeroSection() {
         </Box>
 
         {/* Community Members */}
-        <Box sx={{ textAlign: "center" }}>
+        <Box
+          sx={{
+            textAlign: "center",
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            borderRadius: "8px",
+            padding: "1rem",
+            minWidth: "120px",
+          }}
+        >
           <Typography
             variant="h3"
             sx={{ fontSize: { sm: "48px", xs: "32px" }, color: "#009FE3" }}
