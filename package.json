@@ -19,6 +19,8 @@
     "@tabler/icons-react": "^3.29.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "embla-carousel-autoplay": "^8.5.2",
+    "embla-carousel-react": "^8.5.2",
     "lucide-react": "^0.471.1",
     "motion": "^12.0.0",
     "next": "^15.1.4",

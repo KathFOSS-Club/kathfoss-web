@@ -32,6 +32,7 @@ const Team = () => {
         alignItems: "center",
         minHeight: "100vh",
         padding: "2rem",
+        marginTop:"30vh"
       }}
     >
       <Box sx={{ width: "100%", maxWidth: "1200px", margin: "0 auto" }}>

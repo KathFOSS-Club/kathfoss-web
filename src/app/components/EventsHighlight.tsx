@@ -1,37 +1,5 @@
 import { Box, Typography } from "@mui/material";
 import Carousel from "@/app/components/ui/carousel";
-<<<<<<< HEAD
-
-export const EventsHighlight = () => {
-  const imgs = [
-    {
-      title: "images",
-      src: "/images/EventsHighlights/event-1.png",
-    },
-    {
-      title: "images",
-      src: "/images/EventsHighlights/event-2.png",
-    },
-    {
-      title: "images",
-      src: "/images/EventsHighlights/event-3.png",
-    },
-    {
-      title: "images",
-      src: "/images/EventsHighlights/event-4.png",
-    },
-    {
-      title: "images",
-      src: "/images/EventsHighlights/event-6.png",
-    },
-  ];
-
-  return (
-    <Box
-      sx={{
-        marginTop: "10vh",
-        display: "flex-col",
-=======
 import { eventHighlights } from "@/app/data/event-highlights";
 
 export const EventsHighlight = () => {
@@ -39,7 +7,6 @@ export const EventsHighlight = () => {
     <Box
       sx={{
         display: "block",
->>>>>>> 2b76e2fcbcf8888e40e61ae8326861152c975b63
       }}
     >
       <Box
@@ -47,21 +14,7 @@ export const EventsHighlight = () => {
           textAlign: "center",
         }}
       >
-<<<<<<< HEAD
-        <Typography variant="h1">EVENT HIGHLIGHTS</Typography>
-      </Box>
 
-      <Box
-        sx={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}
-      >
-        <Box
-          sx={{
-            width: { md: "80%", xs: "100%" },
-            overflow: { md: "hidden", xs: "none" },
-          }}
-        >
-          <Carousel slides={imgs} />
-=======
         <Typography
           variant="h2"
           component="h2"
@@ -103,7 +56,6 @@ export const EventsHighlight = () => {
       >
         <Box>
           <Carousel slides={eventHighlights} />
->>>>>>> 2b76e2fcbcf8888e40e61ae8326861152c975b63
         </Box>
       </Box>
     </Box>
