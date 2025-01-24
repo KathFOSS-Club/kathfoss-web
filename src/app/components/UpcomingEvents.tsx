@@ -9,30 +9,11 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
-const events = [
-  {
-    title: "Introducing Ucharan AI",
-    description: "Event details: 20th Jan, 2025",
-    image: "/images/UpcomingEvents/ucharan-ai.png",
-    link: "#",
-  },
-  {
-    title: "Hackathon",
-    description: "Event details: 28th June, 2025",
-    image: "/images/UpcomingEvents/hackathon.png",
-    link: "#",
-  },
-  {
-    title: "Git/GitHub Python Workshop",
-    description: "Event details: 10th Mar, 2025",
-    image: "/images/UpcomingEvents/workshop.png",
-    link: "#",
-  },
-];
+import { upcomingEvents as events } from "../data/upcoming-events";
 
 export default function UpcomingEvents() {
   return (
-    <Box sx={{ padding: 4, marginTop: 10 }}>
+    <Box sx={{ display: "block", marginTop: 15 }}>
       <Typography
         variant="h2"
         component="h2"
@@ -40,7 +21,14 @@ export default function UpcomingEvents() {
         gutterBottom
         sx={{ fontWeight: "600", marginBottom: 3 }}
       >
-        UPCOMING EVENTS
+        UPCOMING{" "}
+        <Typography
+          variant="h2"
+          component="span"
+          sx={{ color: "#009FE3", fontWeight: "600" }}
+        >
+          EVENTS
+        </Typography>
       </Typography>
 
       <Grid container spacing={5} justifyContent="center" alignItems="center">

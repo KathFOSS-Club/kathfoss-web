@@ -9,9 +9,11 @@ import {
   HighlightedProjects,
   Team,
   UpcomingEvents,
+  
 } from "./components";
 
 import React from "react";
+import ContactUs from "./components/ContactUs";
 import Testimonial from "./components/Testimonial";
 
 export default async function Home() {
@@ -22,9 +24,8 @@ export default async function Home() {
         scrollbarWidth: "none",
         "&::-webkit-scrollbar": {
           display: "none",
-
         },
-        scrollBehavior:"smooth"
+        scrollBehavior: "smooth",
       }}
     >
       {/* Header */}
@@ -43,10 +44,13 @@ export default async function Home() {
       <Testimonial />
 
       {/* Team */}
-      <Team />
+      <Team  />
 
       {/* Highlighted Projects */}
       <HighlightedProjects />
+
+      {/*contact */}
+      <ContactUs />
 
       {/* Footer */}
       <Footer />

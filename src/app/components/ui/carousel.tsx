@@ -1,12 +1,20 @@
 "use client";
 import { IconArrowNarrowRight } from "@tabler/icons-react";
 import { useState, useRef, useId, useEffect } from "react";
+<<<<<<< HEAD
 import { Box, Button } from "@mui/material";
+=======
+import { Box, Button, Typography } from "@mui/material";
+>>>>>>> 2b76e2fcbcf8888e40e61ae8326861152c975b63
 import Image from "next/image";
 
 interface SlideData {
   title: string;
   src: string;
+<<<<<<< HEAD
+=======
+  description: string;
+>>>>>>> 2b76e2fcbcf8888e40e61ae8326861152c975b63
 }
 
 interface SlideProps {
@@ -63,19 +71,31 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
     event.currentTarget.style.opacity = "1";
   };
 
+<<<<<<< HEAD
   const { src, title } = slide;
   return (
     <Box
       sx={{
         perspective: "1200px",
+=======
+  const { src, title, description } = slide;
+  const [isExpanded, setIsExpanded] = useState(false);
+  return (
+    <Box
+      sx={{
+        perspective: "2000px",
+>>>>>>> 2b76e2fcbcf8888e40e61ae8326861152c975b63
         transformStyle: "preserve-3d",
       }}
     >
       <Box
+<<<<<<< HEAD
         ref={slideRef}
         onClick={() => handleSlideClick(index)}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
+=======
+>>>>>>> 2b76e2fcbcf8888e40e61ae8326861152c975b63
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -83,9 +103,28 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
           justifyContent: "center",
           position: "relative",
           opacity: 1,
+<<<<<<< HEAD
           transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
           width: "70vmin",
           height: "70vmin",
+=======
+          transition:
+            "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s ease-in-out",
+          width: {
+            xs: "20rem",
+            sm: "25rem",
+            md: "30rem",
+            lg: "35rem",
+            xl: "40rem",
+          },
+          height: {
+            xs: isExpanded ? "34rem" : "26.5rem",
+            sm: isExpanded ? "37rem" : "28rem",
+            md: isExpanded ? "40rem" : "32rem",
+            lg: isExpanded ? "38rem" : "32rem",
+            xl: isExpanded ? "46rem" : "39.5rem",
+          },
+>>>>>>> 2b76e2fcbcf8888e40e61ae8326861152c975b63
           marginX: "4vmin",
           zIndex: 10,
           transform:
@@ -93,7 +132,16 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
               ? "scale(0.98) rotateX(8deg)"
               : "scale(1) rotateX(0deg)",
           transformOrigin: "bottom",
+<<<<<<< HEAD
         }}
+=======
+          overflow: "hidden", // Ensure content doesn't overflow
+        }}
+        ref={slideRef}
+        onClick={() => handleSlideClick(index)}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+>>>>>>> 2b76e2fcbcf8888e40e61ae8326861152c975b63
       >
         <Box
           sx={{
@@ -103,13 +151,18 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
             width: "100%",
             height: "100%",
             backgroundColor: "#1D1F2F",
+<<<<<<< HEAD
             borderRadius: "50px",
+=======
+            borderRadius: "30px",
+>>>>>>> 2b76e2fcbcf8888e40e61ae8326861152c975b63
             overflow: "hidden",
             transition: "all 0.15s ease-out",
             transform:
               current === index
                 ? "translate3d(calc(var(--x) / 30), calc(var(--y) / 30), 0)"
                 : "none",
+<<<<<<< HEAD
           }}
         >
           <Image
@@ -132,6 +185,122 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
             width={500}
             height={500}
           />
+=======
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          {/* Image Section */}
+          <Box
+            sx={{
+              position: "relative",
+              width: "100%",
+              height: {
+                xs: "22rem",
+                sm: "22rem",
+                md: "26rem",
+                lg: "26rem",
+                xl: "33.5rem",
+              },
+
+              overflow: "hidden",
+              padding: "16px",
+              boxSizing: "border-box",
+            }}
+          >
+            <Box
+              sx={{
+                position: "relative",
+                width: "100%",
+                height: "100%",
+                overflow: "hidden",
+                borderRadius: "25px 25px 0 0",
+              }}
+            >
+              <Image
+                alt={title}
+                src={src}
+                onLoad={imageLoaded}
+                loading="lazy"
+                decoding="sync"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  objectFit: "cover",
+                  opacity: current === index ? 1 : 0.5,
+                  transition: "opacity 0.7s ease-in-out",
+                  cursor: "pointer",
+                }}
+                fill
+              />
+            </Box>
+          </Box>
+
+          {/* Description Section */}
+          <Box
+            sx={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "flex-start",
+              color: "white",
+              fontSize: "16px",
+              overflow: "hidden",
+              height: isExpanded ? "auto" : "10px",
+              transition: "height 0.3s ease-in-out, padding 0.3s ease-in-out",
+              textAlign: "center",
+              width: "100%",
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                fontWeight: "500",
+                fontSize: { sm: "23px", xs: "16px" },
+                marginBottom: "6px",
+                textAlign: "center",
+                width: "100%",
+                color: "grey.300",
+
+              }}
+            >
+              {title}
+            </Typography>
+
+            <Box sx={{ padding: "0 6px" }}>
+              <Typography
+                sx={{
+                  fontSize: { sm: "15px", xs: "12px" },
+                  color: "#B0B0B0",
+                  lineHeight: "1.6",
+                  maxWidth: "600px",
+                  marginBottom: "16px",
+                  textAlign: "justify",
+                  width: "100%",
+                  marginX: "auto",
+                  wordWrap: "break-word",
+                  hyphens: "auto",
+                }}
+              >
+                {description}
+              </Typography>
+            </Box>
+          </Box>
+
+          {/* Show More Button */}
+          <Button
+            onClick={() => setIsExpanded(!isExpanded)}
+            sx={{
+              color: `${isExpanded ? "gray" : "grey.400"}`,
+              margin: "8px",
+              fontSize: { sm: "14px", xs: "12px" },
+              textTransform: "none",
+            }}
+          >
+            {isExpanded ? "Show Less" : "Show More"}
+          </Button>
+>>>>>>> 2b76e2fcbcf8888e40e61ae8326861152c975b63
         </Box>
       </Box>
     </Box>
@@ -190,7 +359,10 @@ export default function Carousel({ slides }: CarouselProps) {
     }
   };
   const handlePointerDown = (event: React.PointerEvent) => {
+<<<<<<< HEAD
     console.log("point down");
+=======
+>>>>>>> 2b76e2fcbcf8888e40e61ae8326861152c975b63
     startXRef.current = event.clientX;
     console.log(startXRef);
     offsetXRef.current = 0;
@@ -246,8 +418,25 @@ export default function Carousel({ slides }: CarouselProps) {
     <Box
       sx={{
         position: "relative",
+<<<<<<< HEAD
         width: "80vmin",
         height: "70vmin",
+=======
+        width: {
+          xs: "22rem",
+          sm: "30rem",
+          md: "35rem",
+          lg: "39rem",
+          xl: "45rem",
+        },
+        height: {
+          xs: "30rem",
+          sm: "30rem",
+          md: "36rem",
+          lg: "36rem",
+          xl: "45rem",
+        },
+>>>>>>> 2b76e2fcbcf8888e40e61ae8326861152c975b63
         marginX: "auto",
       }}
       aria-labelledby={`carousel-heading-${id}`}
@@ -282,7 +471,11 @@ export default function Carousel({ slides }: CarouselProps) {
           top: "50%",
           left: 0,
           right: 0,
+<<<<<<< HEAD
           display: "flex",
+=======
+          display: { md: "flex", xs: "none" },
+>>>>>>> 2b76e2fcbcf8888e40e61ae8326861152c975b63
           justifyContent: "space-between",
           alignItems: "center",
           transform: "translateY(-50%)",
