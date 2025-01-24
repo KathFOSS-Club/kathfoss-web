@@ -13,7 +13,7 @@ import { upcomingEvents as events } from "../data/upcoming-events";
 
 export default function UpcomingEvents() {
   return (
-    <Box sx={{ display: "block", marginTop: 15 }}>
+    <Box sx={{ display: "block", marginTop: 10 }}>
       <Typography
         variant="h2"
         component="h2"

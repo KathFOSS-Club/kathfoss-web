@@ -6,7 +6,7 @@ export default function HeroSection() {
     <Box
       sx={{
         textAlign: "center",
-        my: "8rem",
+        marginTop: "8rem",
         padding: { xs: "1rem", sm: "2rem" },
       }}
     >
@@ -35,7 +35,8 @@ export default function HeroSection() {
       >
         “Code, Collaborate, Contribute”
       </Typography>
-
+      {/* Timer Component */}
+      <Timer />
       {/* About Us Section */}
       <Box id="about-us" sx={{ marginTop: "4rem" }}>
         <Typography
@@ -61,8 +62,9 @@ export default function HeroSection() {
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
-          gap: { xs: "1rem", sm: "2rem" },
-          marginTop: "4rem",
+          gap: { xs: "0.75rem", sm: "2rem" },
+          marginTop: { xs: "2rem", sm: "4rem" },
+          px: { xs: 1, sm: 0 },
         }}
       >
         {/* Projects */}
@@ -71,17 +73,31 @@ export default function HeroSection() {
             textAlign: "center",
             backgroundColor: "rgba(255, 255, 255, 0.1)",
             borderRadius: "8px",
-            padding: "1rem",
-            minWidth: "120px",
+            padding: { xs: "0.75rem", sm: "1rem" },
+            minWidth: { xs: "calc(50% - 0.75rem)", sm: "120px" },
+            maxWidth: { xs: "calc(50% - 0.75rem)", md: "none" },
+            boxSizing: "border-box",
           }}
         >
           <Typography
             variant="h3"
-            sx={{ fontSize: { sm: "48px", xs: "32px" }, color: "#009FE3" }}
+            sx={{
+              fontSize: { xs: "32px", sm: "48px" },
+              lineHeight: { xs: 1.2, sm: 1.5 },
+              color: "#009FE3",
+            }}
           >
             2
           </Typography>
-          <Typography variant="h6" sx={{ color: "#fff" }}>
+          <Typography
+            variant="h6"
+            sx={{
+              color: "#fff",
+              fontSize: { xs: "0.875rem", sm: "1rem" },
+              lineHeight: { xs: 1.2, sm: 1.5 },
+              whiteSpace: "nowrap",
+            }}
+          >
             Projects
           </Typography>
         </Box>
@@ -92,17 +108,31 @@ export default function HeroSection() {
             textAlign: "center",
             backgroundColor: "rgba(255, 255, 255, 0.1)",
             borderRadius: "8px",
-            padding: "1rem",
-            minWidth: "120px",
+            padding: { xs: "0.75rem", sm: "1rem" },
+            minWidth: { xs: "calc(50% - 0.75rem)", sm: "120px" },
+            maxWidth: { xs: "calc(50% - 0.75rem)", md: "none" },
+            boxSizing: "border-box",
           }}
         >
           <Typography
             variant="h3"
-            sx={{ fontSize: { sm: "48px", xs: "32px" }, color: "#009FE3" }}
+            sx={{
+              fontSize: { xs: "32px", sm: "48px" },
+              lineHeight: { xs: 1.2, sm: 1.5 },
+              color: "#009FE3",
+            }}
           >
             13
           </Typography>
-          <Typography variant="h6" sx={{ color: "#fff" }}>
+          <Typography
+            variant="h6"
+            sx={{
+              color: "#fff",
+              fontSize: { xs: "0.875rem", sm: "1rem" },
+              lineHeight: { xs: 1.2, sm: 1.5 },
+              whiteSpace: "nowrap",
+            }}
+          >
             Contributors
           </Typography>
         </Box>
@@ -113,17 +143,31 @@ export default function HeroSection() {
             textAlign: "center",
             backgroundColor: "rgba(255, 255, 255, 0.1)",
             borderRadius: "8px",
-            padding: "1rem",
-            minWidth: "120px",
+            padding: { xs: "0.75rem", sm: "1rem" },
+            minWidth: { xs: "calc(50% - 0.75rem)", sm: "120px" },
+            maxWidth: { xs: "calc(50% - 0.75rem)", md: "none" },
+            boxSizing: "border-box",
           }}
         >
           <Typography
             variant="h3"
-            sx={{ fontSize: { sm: "48px", xs: "32px" }, color: "#009FE3" }}
+            sx={{
+              fontSize: { xs: "32px", sm: "48px" },
+              lineHeight: { xs: 1.2, sm: 1.5 },
+              color: "#009FE3",
+            }}
           >
             50+
           </Typography>
-          <Typography variant="h6" sx={{ color: "#fff" }}>
+          <Typography
+            variant="h6"
+            sx={{
+              color: "#fff",
+              fontSize: { xs: "0.875rem", sm: "1rem" },
+              lineHeight: { xs: 1.2, sm: 1.5 },
+              whiteSpace: "nowrap",
+            }}
+          >
             Events Organized
           </Typography>
         </Box>
@@ -134,17 +178,31 @@ export default function HeroSection() {
             textAlign: "center",
             backgroundColor: "rgba(255, 255, 255, 0.1)",
             borderRadius: "8px",
-            padding: "1rem",
-            minWidth: "120px",
+            padding: { xs: "0.75rem", sm: "1rem" },
+            minWidth: { xs: "calc(50% - 0.75rem)", sm: "120px" },
+            maxWidth: { xs: "calc(50% - 0.75rem)", md: "none" },
+            boxSizing: "border-box",
           }}
         >
           <Typography
             variant="h3"
-            sx={{ fontSize: { sm: "48px", xs: "32px" }, color: "#009FE3" }}
+            sx={{
+              fontSize: { xs: "32px", sm: "48px" },
+              lineHeight: { xs: 1.2, sm: 1.5 },
+              color: "#009FE3",
+            }}
           >
             15+
           </Typography>
-          <Typography variant="h6" sx={{ color: "#fff" }}>
+          <Typography
+            variant="h6"
+            sx={{
+              color: "#fff",
+              fontSize: { xs: "0.875rem", sm: "1rem" },
+              lineHeight: { xs: 1.2, sm: 1.5 },
+              whiteSpace: "nowrap",
+            }}
+          >
             Years Active
           </Typography>
         </Box>
@@ -155,24 +213,35 @@ export default function HeroSection() {
             textAlign: "center",
             backgroundColor: "rgba(255, 255, 255, 0.1)",
             borderRadius: "8px",
-            padding: "1rem",
-            minWidth: "120px",
+            padding: { xs: "0.75rem", sm: "1rem" },
+            minWidth: { xs: "calc(50% - 0.75rem)", sm: "120px" },
+            maxWidth: { xs: "calc(50% - 0.75rem)", md: "none" },
+            boxSizing: "border-box",
           }}
         >
           <Typography
             variant="h3"
-            sx={{ fontSize: { sm: "48px", xs: "32px" }, color: "#009FE3" }}
+            sx={{
+              fontSize: { xs: "32px", sm: "48px" },
+              lineHeight: { xs: 1.2, sm: 1.5 },
+              color: "#009FE3",
+            }}
           >
             500+
           </Typography>
-          <Typography variant="h6" sx={{ color: "#fff" }}>
+          <Typography
+            variant="h6"
+            sx={{
+              color: "#fff",
+              fontSize: { xs: "0.875rem", sm: "1rem" },
+              lineHeight: { xs: 1.2, sm: 1.5 },
+              whiteSpace: "nowrap",
+            }}
+          >
             Community Members
           </Typography>
         </Box>
       </Box>
-
-      {/* Timer Component */}
-      <Timer />
     </Box>
   );
 }
