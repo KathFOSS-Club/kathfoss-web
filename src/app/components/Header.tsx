@@ -16,6 +16,7 @@ export default function Header() {
     { label: "EVENTS", href: "#events" },
     { label: "TEAM", href: "#team" },
     { label: "CONTACT", href: "#contact-us" },
+    { label: "ABOUT US", href: "#about-us" },
   ];
 
   useEffect(() => {
