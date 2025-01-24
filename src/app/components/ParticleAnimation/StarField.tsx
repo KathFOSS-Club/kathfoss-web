@@ -1,157 +1,167 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from "react";
 
 interface Props {
-	speedFactor?: number;
-	backgroundColor?: string;
-	particleColor?: string;
-	particleCount?: number;
-	particleSize?:number;
+  speedFactor?: number;
+  backgroundColor?: string;
+  starColor?: [number, number, number];
+  starCount?: number;
 }
 
 export default function Starfield(props: Props) {
-	const {
-		speedFactor = 0.05,
-		backgroundColor = '#0E1322',
-		particleColor = '#ececec',
-		particleCount = 900,
-		particleSize=1.1, 
-	} = props;
+  const {
+    speedFactor = 0.05,
+    backgroundColor = "black",
+    starColor = [255, 255, 255],
+    starCount = 900,
+  } = props;
 
-	const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  useEffect(() => {
+    const canvas = document.getElementById("starfield") as HTMLCanvasElement;
 
-	useEffect(() => {
-		const canvas = canvasRef.current;
+    if (canvas) {
+      const c = canvas.getContext("2d");
 
-		if (canvas) {
-			const ctx = canvas.getContext('2d');
+      if (c) {
+        let w = window.innerWidth;
+        let h = window.innerHeight;
 
-			if (ctx) {
-				let width = window.innerWidth;
-				let height = window.innerHeight;
-				let particles: { x: number; y: number; z: number }[] = [];
-				let rotationX = 0;
-				let rotationY = 0;
+        const setCanvasExtents = () => {
+          canvas.width = w;
+          canvas.height = h;
+        };
 
-				// Calculate radius with an additional buffer for overflow
-				const baseRadius = Math.sqrt(width ** 2 + height ** 2) / 2;
-				const overflowBuffer = baseRadius * 0.3; // 30% larger than screen diagonal
-				const effectiveRadius = baseRadius + overflowBuffer;
+        setCanvasExtents();
 
-				const setCanvasExtents = () => {
-					canvas.width = width;
-					canvas.height = height;
-				};
+        window.onresize = () => {
+          setCanvasExtents();
+        };
 
-				setCanvasExtents();
+        const makeStars = (count: number) => {
+          const out = [];
+          for (let i = 0; i < count; i++) {
+            const s = {
+              x: Math.random() * 1600 - 800,
+              y: Math.random() * 900 - 450,
+              z: Math.random() * 1000,
+            };
+            out.push(s);
+          }
+          return out;
+        };
 
-				window.addEventListener('resize', () => {
-					width = window.innerWidth;
-					height = window.innerHeight;
-					setCanvasExtents();
-				});
+        let stars = makeStars(starCount);
 
-				const generateParticles = (count: number) => {
-					const particles = [];
-					for (let i = 0; i < count; i++) {
-						// Generate spherical coordinates with larger radius including overflow buffer
-						const theta = Math.random() * 2 * Math.PI;
-						const phi = Math.acos(2 * Math.random() - 1);
-						const r = Math.cbrt(Math.random()) * effectiveRadius;
+        const clear = () => {
+          c.fillStyle = backgroundColor;
+          c.fillRect(0, 0, canvas.width, canvas.height);
+        };
 
-						const x = r * Math.sin(phi) * Math.cos(theta);
-						const y = r * Math.sin(phi) * Math.sin(theta);
-						const z = r * Math.cos(phi);
+        const putPixel = (x: number, y: number, brightness: number, size: number) => {
+          const rgb =
+            "rgba(" +
+            starColor[0] +
+            "," +
+            starColor[1] +
+            "," +
+            starColor[2] +
+            "," +
+            brightness +
+            ")";
+          c.fillStyle = rgb;
+          c.beginPath();
+          c.arc(x, y, size, 0, Math.PI * 2);
+          c.fill();
+        };
 
-						particles.push({ x, y, z });
-					}
-					return particles;
-				};
+        const moveStars = (distance: number) => {
+          const count = stars.length;
+          for (var i = 0; i < count; i++) {
+            const s = stars[i];
+            s.z -= distance;
+            while (s.z <= 1) {
+              s.z += 1000;
+            }
+          }
+        };
 
-				particles = generateParticles(particleCount);
+        let prevTime: number;
+        const init = (time: number) => {
+          prevTime = time;
+          requestAnimationFrame(tick);
+        };
 
-				const clearCanvas = () => {
-					ctx.fillStyle = backgroundColor;
-					ctx.fillRect(0, 0, width, height);
-				};
+        const tick = (time: number) => {
+          let elapsed = time - prevTime;
+          prevTime = time;
 
-				const drawParticles = () => {
-					const centerX = width / 2;
-					const centerY = height / 2;
+          moveStars(elapsed * speedFactor);
 
-					particles.forEach((particle) => {
-						// Apply rotation
-						const rotatedX =
-							particle.x * Math.cos(rotationX) - particle.z * Math.sin(rotationX);
-						const rotatedZ =
-							particle.x * Math.sin(rotationX) + particle.z * Math.cos(rotationX);
-						const rotatedY =
-							particle.y * Math.cos(rotationY) - rotatedZ * Math.sin(rotationY);
+          clear();
 
-						// Perspective projection
-						const perspective = 800 / (800 - rotatedZ);
-						const x = centerX + rotatedX * perspective;
-						const y = centerY + rotatedY * perspective;
+          const cx = w / 2;
+          const cy = h / 2;
 
-						// Only draw particles within the visible screen
-						if (x >= 0 && x < width && y >= 0 && y < height) {
-							ctx.fillStyle = particleColor;
-							ctx.beginPath();
-							
-							ctx.arc(x, y, particleSize, 0, 2 * Math.PI);
-							ctx.fill();
-						}
-					});
-				};
+          const count = stars.length;
+          for (var i = 0; i < count; i++) {
+            const star = stars[i];
 
-				const regenerateParticles = () => {
-					// Dynamically add new particles when rotation exceeds certain angles
-					particles = generateParticles(particleCount);
-				};
+            const x = cx + star.x / (star.z * 0.001);
+            const y = cy + star.y / (star.z * 0.001);
 
-				const update = () => {
-					clearCanvas();
-					drawParticles();
+            if (x < 0 || x >= w || y < 0 || y >= h) {
+              continue;
+            }
 
-					// Increment rotation for animation
-					rotationX += speedFactor * 0.01;
-					rotationY += speedFactor * 0.015;
+            const d = star.z / 1000.0;
+            const b = 1 - d * d;
 
-					// Regenerate particles periodically to fill gaps
-					if (Math.abs(rotationX) > Math.PI || Math.abs(rotationY) > Math.PI) {
-						regenerateParticles();
-						rotationX = 0;
-						rotationY = 0;
-					}
+            // Calculate the size of the star based on its z value
+            const size = Math.max(0.5, 3 * (1 - d));
 
-					requestAnimationFrame(update);
-				};
+            putPixel(x, y, b, size);
+          }
 
-				update();
-			} else {
-				console.error('Could not get 2D context for canvas.');
-			}
-		} else {
-			console.error('Could not find canvas element.');
-		}
+          requestAnimationFrame(tick);
+        };
 
-		return () => {
-			window.removeEventListener('resize', () => null);
-		};
-	}, [speedFactor, backgroundColor, particleColor, particleCount]);
+        requestAnimationFrame(init);
 
-	return (
-		<canvas
-			ref={canvasRef}
-			style={{
-				position: 'fixed',
-				top: 0,
-				left: 0,
-				width: '100%',
-				height: '100%',
-				zIndex: -1,
-			}}
-		></canvas>
-	);
+        // add window resize listener:
+        window.addEventListener("resize", function () {
+          w = window.innerWidth;
+          h = window.innerHeight;
+          setCanvasExtents();
+        });
+      } else {
+        console.error("Could not get 2d context from canvas element");
+      }
+    } else {
+      console.error('Could not find canvas element with id "starfield"');
+    }
+
+    return () => {
+      window.onresize = null;
+    };
+  }, [starColor, backgroundColor, speedFactor, starCount]);
+
+  return (
+    <canvas
+      id="starfield"
+      style={{
+        padding: 0,
+        margin: 0,
+        position: "fixed",
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        zIndex: -1,
+        opacity: 1,
+        pointerEvents: "none",
+        mixBlendMode: "screen",
+      }}
+    ></canvas>
+  );
 }
