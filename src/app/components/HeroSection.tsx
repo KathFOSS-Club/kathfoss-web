@@ -1,5 +1,5 @@
 import { Box, Typography, Button } from "@mui/material";
-import Timer from "./ui/Timer/Timer";
+// import Timer from "./ui/Timer/Timer";
 
 export default function HeroSection() {
   return (

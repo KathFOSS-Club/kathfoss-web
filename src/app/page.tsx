@@ -26,8 +26,6 @@ export default async function Home() {
         scrollBehavior: "smooth",
       }}
     >
-      <Navbar/>
-
       {/* Hero Section */}
       <HeroSection />
 
@@ -38,7 +36,7 @@ export default async function Home() {
       <UpcomingEvents />
 
       {/* Team */}
-      <Team  />
+      <Team />
 
       {/* Highlighted Projects */}
       <HighlightedProjects />

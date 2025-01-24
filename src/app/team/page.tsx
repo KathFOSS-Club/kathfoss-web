@@ -26,7 +26,6 @@ export default function MeetOurTeamPage() {
 
   return (
     <>
-      <Header />
       <Box
         sx={{
           display: "flex",
