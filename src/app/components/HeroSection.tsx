@@ -36,7 +36,7 @@ export default function HeroSection() {
         “Code, Collaborate, Contribute”
       </Typography>
       {/* Timer Component */}
-      <Timer />
+      {/* <Timer /> */}
       {/* About Us Section */}
       <Box id="about-us" sx={{ marginTop: "4rem" }}>
         <Typography
