@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { Box } from "@mui/material";
 import StarField from "./components/ParticleAnimation/StarField";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 
@@ -31,6 +33,18 @@ export default async function RootLayout({
         <Providers>
           <StarField/>
           <Box sx={{ position: "relative", zIndex: 1 }}>{children}</Box>
+          {children}
+            <ToastContainer
+              position="top-center"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
         </Providers>
       </body>
     </html>
