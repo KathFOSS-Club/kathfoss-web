@@ -33,6 +33,7 @@ const Team = () => {
         minHeight: "100vh",
         padding: "2rem",
       }}
+      id="team"
     >
       <Box sx={{ width: "100%", maxWidth: "1200px", margin: "0 auto" }}>
         <Typography
