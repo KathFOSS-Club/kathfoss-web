@@ -5,7 +5,7 @@ export const teamMembers = {
       role: "President",
       image: "/images/MeetOurTeam/president.jpg",
       description:
-        "Prabhash is a Computer Engineering student, and an AI Researcher. My research focuses on leveraging AI and machine learning for healthcare applications, including medical imaging, natural language processing, and generative AI.As Co-Organizer of PyData Kathmandu, Organizer of CNCF Kathmandu, and Lead Organizer of TensorFlow User Group Kathmandu, he actively promotes open-source technologies and AI development. A Streamlit Student Ambassador since March 2023, he became a Student Ambassador Leader in September 2023.Prabhash is passionate about advancing healthcare in low-resource settings and fostering vibrant tech communities.",
+        "Prabhash is a Computer Engineering student, and an AI Researcher. My research focuses on leveraging AI and machine learning for healthcare applications, including medical imaging, natural language processing, and generative AI. As Co-Organizer of PyData Kathmandu, Organizer of CNCF Kathmandu, and Lead Organizer of TensorFlow User Group Kathmandu, he actively promotes open-source technologies and AI development. A Streamlit Student Ambassador since March 2023, he became a Student Ambassador Leader in September 2023. Prabhash is passionate about advancing healthcare in low-resource settings and fostering vibrant tech communities.",
       socialMedia: {
         linkedin: "https://www.linkedin.com/in/prabhash-kumar-jha/",
         github: " https://github.com/prabhashj07",
@@ -223,8 +223,9 @@ export const teamMembers = {
     {
       name: "Deepak Osti",
       role: "Executive Member",
-      image: "/images/MeetOurTeam/ram.png",
-      description: "......",
+      image: "/images/MeetOurTeam/executive-member3.jpg",
+      description:
+        "Deepak Osti is passionate about artificial intelligence and machine learning. He is dedicated to exploring innovative solutions and contributing to the world of open-source projects. With a keen interest in technology and a collaborative mindset. He also aims to drive meaningful advancements in the field of AI and ML.",
       socialMedia: {
         linkedin: "https://linkedin.com",
         github: "https://github.com",

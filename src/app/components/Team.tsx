@@ -79,7 +79,7 @@ const Team = () => {
         </Box>
 
         <Box textAlign="center" mt={4}>
-          <Link href="/meet-our-team" passHref>
+          <Link href="/team" passHref>
             <Button variant="contained" color="secondary">
               See More
             </Button>
