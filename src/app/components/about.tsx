@@ -1,27 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Box, Typography, Button, Divider } from "@mui/material";
+import { ArrowForward as ArrowForwardIcon } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
-import HeroSection from "@/components/HeroSection";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 export default function AboutKathfoss() {
-  const [showHome, setShowHome] = useState(false);
-
-  if (showHome) {
-    return <HeroSection />;
-  }
+  const router = useRouter();
 
   return (
     <Box
       sx={{
-        px: "2rem",
-        py: "4rem",
         textAlign: "center",
+        my: "8rem",
+        px: "2rem",
       }}
     >
-      {/* Heading */}
       <Typography
         variant="h2"
         component="h2"
@@ -40,7 +34,7 @@ export default function AboutKathfoss() {
         sx={{
           fontSize: { sm: "25px", xs: "14px" },
           fontWeight: "400",
-          color: "#666",
+          color: "#fffff",
           lineHeight: "1.8",
           maxWidth: "800px",
           mx: "auto",
@@ -59,7 +53,7 @@ export default function AboutKathfoss() {
         sx={{
           fontSize: { sm: "25px", xs: "14px" },
           fontWeight: "400",
-          color: "#666",
+          color: "#fffff",
           lineHeight: "1.8",
           maxWidth: "800px",
           mx: "auto",
@@ -97,21 +91,21 @@ export default function AboutKathfoss() {
         <ul style={{ paddingLeft: "1rem" }}>
           <li style={{ display: "flex", alignItems: "center" }}>
             <ArrowForwardIcon sx={{ color: "#e91e63", mr: "0.5rem" }} />
-            <Typography sx={{ fontSize: "18px", color: "#555" }}>
+            <Typography sx={{ fontSize: "18px", color: "#fffff" }}>
               Conduct workshops and events to spread awareness about FOSS tools
               and technologies.
             </Typography>
           </li>
           <li style={{ display: "flex", alignItems: "center" }}>
             <ArrowForwardIcon sx={{ color: "#e91e63", mr: "0.5rem" }} />
-            <Typography sx={{ fontSize: "18px", color: "#555" }}>
+            <Typography sx={{ fontSize: "18px", color: "#fffff" }}>
               Host KathFOSS Hackathons, where students innovate and learn by
               building open-source solutions.
             </Typography>
           </li>
           <li style={{ display: "flex", alignItems: "center" }}>
             <ArrowForwardIcon sx={{ color: "#e91e63", mr: "0.5rem" }} />
-            <Typography sx={{ fontSize: "18px", color: "#555" }}>
+            <Typography sx={{ fontSize: "18px", color: "#fffff" }}>
               Support students in collaborating on open-source projects and
               learning new tools and frameworks.
             </Typography>
@@ -184,7 +178,7 @@ export default function AboutKathfoss() {
             <Typography
               sx={{
                 fontSize: "14px",
-                color: "#555",
+                color: "#fffff",
               }}
             >
               {item.description}
@@ -193,28 +187,25 @@ export default function AboutKathfoss() {
         ))}
       </Box>
 
-      {/* Call-to-Action Button 
       <Button
-        variant="outlined"
+        variant="contained"
         sx={{
-          mt: "2rem",
+          backgroundColor: "#e91e63",
+          color: "#fff",
           px: "2rem",
           py: "0.8rem",
           fontSize: { sm: "16px", xs: "14px" },
           borderRadius: "25px",
           textTransform: "uppercase",
           fontWeight: "bold",
-          borderColor: "#e91e63",
-          color: "#e91e63",
           ":hover": {
-            backgroundColor: "#e91e63",
-            color: "#fff",
+            backgroundColor: "#d81b60",
           },
         }}
-        onClick={() => setShowHome(true)}
+        onClick={() => router.push("/")}
       >
-        Back to Home
-      </Button>*/}
+        Go Back Home
+      </Button>
     </Box>
   );
 }

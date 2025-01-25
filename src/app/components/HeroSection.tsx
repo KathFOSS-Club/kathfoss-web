@@ -1,17 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Box, Typography, Button, Divider } from "@mui/material";
 import Timer from "./ui/Timer/Timer";
 import { useRouter } from "next/navigation";
-import AboutKathfoss from "@/components/about";
 
 export default function HeroSection() {
-  const [showAbout, setShowAbout] = useState(false);
-
-  if (showAbout) {
-    return <AboutKathfoss />;
-  }
+  const router = useRouter();
 
   return (
     <Box
@@ -122,7 +117,7 @@ export default function HeroSection() {
           ))}
         </Box>
 
-        {/* Call-to-Action Button 
+        {/* Call-to-Action Button */}
         <Button
           variant="contained"
           sx={{
@@ -139,10 +134,10 @@ export default function HeroSection() {
               backgroundColor: "#d81b60",
             },
           }}
-          onClick={() => setShowAbout(true)}
+          onClick={() => router.push("/about")}
         >
           ABOUT KATHFOSS
-        </Button>*/}
+        </Button>
       </Box>
     </Box>
   );

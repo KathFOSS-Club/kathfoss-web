@@ -34,8 +34,8 @@ export default async function Home() {
       <HeroSection />
       {/* Hero Section */}
 
-      {/* <About />*/}
-      <About />
+      {/* <About />
+      <About />*/}
       {/* Event Highlights */}
       <EventsHighlight />
 
