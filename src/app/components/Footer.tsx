@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Image from "next/image";
 
 const Footer: React.FC = () => {
   return (
@@ -61,15 +62,19 @@ const Footer: React.FC = () => {
             </Box>
           </Box>
 
-          {/* Newsletter Section */}
-          <Box>
-            <Typography
-              variant="h6"
-              component="h2"
-              sx={{ color: 'white', fontWeight: 'bold' }} // Changed color to white
-            >
-              Newsletter Subscription
-            </Typography>
+          <Box sx={{ padding: 2 }}>
+      <Typography
+        variant="h3"
+        component="h3"
+        align="center"
+        gutterBottom
+        sx={{ fontWeight: "400", marginBottom: 2, color: "#64ffda" }}
+      >
+        <span style={{ color: "#fff", textTransform: "uppercase" }}>
+        Newsletter
+        </span>{" "}
+        <span style={{ color: "#87CEFA", textTransform: "uppercase" }}> Subscription</span>
+      </Typography>
             <Box
               component="form"
               sx={{
@@ -102,10 +107,15 @@ const Footer: React.FC = () => {
               >
                 Subscribe
               </Button>
+                
+
+               
             </Box>
           </Box>
         </Box>
-
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }}> 
+          <Image src="/assets/logo.svg" alt="KATHFOSS Logo" width={200} height={100} /> 
+        </Box>
         <Typography
           variant="body2"
           sx={{
