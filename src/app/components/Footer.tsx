@@ -8,50 +8,112 @@ import Button from '@mui/material/Button';
 
 const Footer: React.FC = () => {
   return (
-    <Box component="footer" sx={{ bgcolor: '#181818', py: 3 }} className="bg-gray-900">
+    <Box component="footer" sx={{ bgcolor: '#181818', py: 3 }}>
       <Container maxWidth="lg">
-        <Box display={{ xs: 'block', md: 'flex' }} justifyContent="space-between" alignItems="center">
+        <Box
+          sx={{
+            display: { xs: 'block', md: 'flex' },
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          {/* Navigate Section */}
           <Box>
-            <Typography variant="h6" component="h2" color="primary" className="text-white font-bold">
-              KATHFOSS
-            </Typography>
-            <Typography variant="body2" color="text.secondary" className="text-gray-400">
-              KATHFORD FOSS COMMUNITY
-            </Typography>
-          </Box>
-
-          <Box>
-            <Typography variant="h6" component="h2" color="primary" className="text-white font-bold">
+            <Typography
+              variant="h6"
+              component="h2"
+              sx={{ color: 'white', fontWeight: 'bold' }} // Changed color to white
+            >
               Navigate
             </Typography>
-            <ul className="list-none mt-2">
-              <li><Link href="/" className="text-blue-400 hover:text-blue-300">About Us</Link></li>
-              <li><Link href="/" className="text-blue-400 hover:text-blue-300">Events</Link></li>
-              <li><Link href="/" className="text-blue-400 hover:text-blue-300">Team</Link></li>
-              <li><Link href="/" className="text-blue-400 hover:text-blue-300">Contact Us</Link></li>
-            </ul>
+            <Box
+              component="nav"
+              sx={{ mt: 2, display: 'flex', flexDirection: 'column', gap: 1 }}
+            >
+              <Link
+                href="/"
+                underline="hover"
+                sx={{ color: 'info.main', '&:hover': { color: 'info.dark' } }}
+              >
+                About Us
+              </Link>
+              <Link
+                href="/"
+                underline="hover"
+                sx={{ color: 'info.main', '&:hover': { color: 'info.dark' } }}
+              >
+                Events
+              </Link>
+              <Link
+                href="/"
+                underline="hover"
+                sx={{ color: 'info.main', '&:hover': { color: 'info.dark' } }}
+              >
+                Team
+              </Link>
+              <Link
+                href="/"
+                underline="hover"
+                sx={{ color: 'info.main', '&:hover': { color: 'info.dark' } }}
+              >
+                Contact Us
+              </Link>
+            </Box>
           </Box>
 
+          {/* Newsletter Section */}
           <Box>
-            <Typography variant="h6" component="h2" color="primary" className="text-white font-bold">
+            <Typography
+              variant="h6"
+              component="h2"
+              sx={{ color: 'white', fontWeight: 'bold' }} // Changed color to white
+            >
               Newsletter Subscription
             </Typography>
-            <form className="mt-2">
+            <Box
+              component="form"
+              sx={{
+                mt: 2,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 1,
+              }}
+            >
               <TextField
                 id="outlined-basic"
                 label="Subscribe to our newsletter"
                 variant="outlined"
                 size="small"
-                className="mb-2 bg-gray-800 text-white border-gray-700"
+                sx={{
+                  bgcolor: '#2d2d2d',
+                  input: { color: 'white' },
+                  '& .MuiOutlinedInput-root': {
+                    '& fieldset': { borderColor: '#555' },
+                    '&:hover fieldset': { borderColor: '#888' },
+                  },
+                }}
               />
-              <Button variant="contained" color="primary" className="bg-blue-500 hover:bg-blue-600">
+              <Button
+                variant="contained"
+                sx={{
+                  bgcolor: 'info.main',
+                  '&:hover': { bgcolor: 'info.dark' },
+                }}
+              >
                 Subscribe
               </Button>
-            </form>
+            </Box>
           </Box>
         </Box>
 
-        <Typography variant="body2" color="text.secondary" align="center" className="mt-4 text-gray-400">
+        <Typography
+          variant="body2"
+          sx={{
+            color: 'text.secondary',
+            textAlign: 'center',
+            mt: 4,
+          }}
+        >
           Copyright © 2025 KATHFORD COLLEGE. All rights reserved.
         </Typography>
       </Container>
