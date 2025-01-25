@@ -70,10 +70,10 @@ const Footer: React.FC = () => {
         gutterBottom
         sx={{ fontWeight: "400", marginBottom: 2, color: "#64ffda" }}
       >
-        <span style={{ color: "#fff", textTransform: "uppercase" }}>
+        <span style={{ color: "#fff", textTransform: "capitalize" }}>
         Newsletter
         </span>{" "}
-        <span style={{ color: "#87CEFA", textTransform: "uppercase" }}> Subscription</span>
+        <span style={{ color: "#87CEFA", textTransform: "capitalize" }}> Subscription</span>
       </Typography>
             <Box
               component="form"
@@ -90,11 +90,11 @@ const Footer: React.FC = () => {
                 variant="outlined"
                 size="small"
                 sx={{
-                  bgcolor: '#2d2d2d',
-                  input: { color: 'white' },
+                  bgcolor: 'white',
+                  input: { color: 'black' },
                   '& .MuiOutlinedInput-root': {
-                    '& fieldset': { borderColor: '#555' },
-                    '&:hover fieldset': { borderColor: '#888' },
+                    '& fieldset': { borderColor: '#111' },
+                    '&:hover fieldset': { borderColor: '#222' },
                   },
                 }}
               />
