@@ -47,7 +47,7 @@ export default function ContactUs() {
     }
   };
   return (
-    <Box sx={{ padding: 2 }}>
+    <Box sx={{ padding: 2 }} id="contact-us">
       <Typography
         variant="h2"
         component="h2"

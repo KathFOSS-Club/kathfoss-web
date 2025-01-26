@@ -48,6 +48,7 @@ html {
 body {
   overflow-y: scroll;
   overflow-x: hidden;
+  font-family:var(--font-karla);
 }
 
 /* Optional: Custom scrollbar for specific elements */
@@ -117,5 +118,47 @@ html {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative flex items-center hover:text-blue-400 transition-colors duration-200 py-2;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .menu-item {
+    @apply flex items-start gap-3 p-3 rounded-lg hover:bg-gray-700/50 transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .mobile-menu-item {
+    @apply flex items-center gap-3 px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .menu-item {
+    @apply flex items-start gap-3 p-3 rounded-lg hover:bg-gray-700/50 transition-colors duration-200;
+  }
+  
+  .menu-item svg {
+    @apply w-5 h-5 mt-2 flex-shrink-0;
+  }
+  
+  .mobile-menu-item {
+    @apply flex items-center gap-3 px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg transition-colors duration-200;
+  }
+  
+  .mobile-menu-item svg {
+    @apply w-5 h-5 flex-shrink-0;
   }
 }

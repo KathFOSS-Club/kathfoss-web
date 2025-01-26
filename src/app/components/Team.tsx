@@ -32,7 +32,9 @@ const Team = () => {
         alignItems: "center",
         minHeight: "100vh",
         padding: "2rem",
+        marginTop: "8rem",
       }}
+      id="team"
     >
       <Box sx={{ width: "100%", maxWidth: "1200px", margin: "0 auto" }}>
         <Typography
@@ -79,7 +81,7 @@ const Team = () => {
         </Box>
 
         <Box textAlign="center" mt={4}>
-          <Link href="/meet-our-team" passHref>
+          <Link href="/team" passHref>
             <Button variant="contained" color="secondary">
               See More
             </Button>
