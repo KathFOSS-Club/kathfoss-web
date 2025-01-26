@@ -175,7 +175,7 @@ const TeamMemberModal: React.FC<TeamMemberModalProps> = ({
                   variant="body1"
                   sx={{
                     color: "#B0B7C3",
-                    fontSize: "1.1rem",
+                    fontSize: "1.1rem !important",
                     lineHeight: 1.8,
                     whiteSpace: "pre-line",
                   }}

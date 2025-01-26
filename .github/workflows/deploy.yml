@@ -1,0 +1,40 @@
+name: Deployment of kathfoss web to vps
+
+on:
+  push:
+    branches: [ main ]  # Change this to your main branch name if different
+
+env:
+  PM2_NAME: kathfoss    # Name for PM2 process
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'  # Adjust this to match your Node.js version
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build
+      run: npm run build
+    
+    - name: Deployment of kathfoss web to vps
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd myProject/Frontend/kathfoss-web
+          git pull origin main
+          npm ci
+          npm run build
+          pm2 restart ${{ env.PM2_NAME }}
