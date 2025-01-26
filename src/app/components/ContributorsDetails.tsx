@@ -67,6 +67,7 @@ const ContributorsDetails = () => {
           "&:hover": {
             backgroundColor: "rgba(25, 22, 49, 1)",
           },
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
         }}
       >
         <ArrowBackIos />
@@ -89,13 +90,14 @@ const ContributorsDetails = () => {
               flex: "0 0 auto",
               width: "200px",
               backgroundColor: "rgb(35, 32, 59)",
-              borderRadius: "8px",
+              borderRadius: "12px",
               padding: 2,
               textAlign: "center",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-              transition: "transform 0.3s ease-in-out",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
+              transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
               "&:hover": {
-                transform: "translateY(-5px)",
+                transform: "translateY(-10px)",
+                boxShadow: "0 8px 16px rgba(0, 0, 0, 0.5)",
               },
             }}
           >
@@ -112,17 +114,25 @@ const ContributorsDetails = () => {
                 alt={contributor.name || contributor.login}
                 width={100}
                 height={100}
-                style={{ borderRadius: "50%" }}
+                style={{ borderRadius: "50%", border: "2px solid #64ffda" }}
               />
             </Box>
-            <Typography variant="h6" sx={{ color: "#64ffda", marginBottom: 1 }}>
+            <Typography
+              variant="h6"
+              sx={{
+                color: "#64ffda",
+                marginBottom: 1,
+                fontWeight: "bold",
+                fontSize: "1.1rem",
+              }}
+            >
               {contributor.name || contributor.login}
             </Typography>
             <Box sx={{ display: "flex", justifyContent: "center", gap: 1 }}>
               <IconButton
                 href={contributor.html_url}
                 target="_blank"
-                sx={{ color: "#64ffda" }}
+                sx={{ color: "#64ffda", "&:hover": { color: "#47e1a5" } }}
               >
                 <GitHub />
               </IconButton>
@@ -130,7 +140,7 @@ const ContributorsDetails = () => {
                 <IconButton
                   href={`https://twitter.com/${contributor.twitter_username}`}
                   target="_blank"
-                  sx={{ color: "#64ffda" }}
+                  sx={{ color: "#64ffda", "&:hover": { color: "#47e1a5" } }}
                 >
                   <Twitter />
                 </IconButton>
@@ -139,7 +149,7 @@ const ContributorsDetails = () => {
                 <IconButton
                   href={contributor.blog}
                   target="_blank"
-                  sx={{ color: "#64ffda" }}
+                  sx={{ color: "#64ffda", "&:hover": { color: "#47e1a5" } }}
                 >
                   <Language />
                 </IconButton>
@@ -162,6 +172,7 @@ const ContributorsDetails = () => {
           "&:hover": {
             backgroundColor: "rgba(25, 22, 49, 1)",
           },
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
         }}
       >
         <ArrowForwardIos />
