@@ -44,27 +44,9 @@ export default function ContactUs() {
       });
       reset();
 
-      toast.success("Your message has been sent successfully!", {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.success("Your message has been sent successfully!");
     } catch (error) {
-      console.log(error);
-
-      toast.error("Failed to send message. Please try again.", {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.error("Failed to send message. Please try again.");
     }
   };
   return (
