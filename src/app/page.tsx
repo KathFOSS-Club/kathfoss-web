@@ -30,7 +30,7 @@ export default async function Home() {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* COntributors Section */}
+      {/* Contributors Section */}
       <Contributors/>
 
       {/* Event Highlights */}

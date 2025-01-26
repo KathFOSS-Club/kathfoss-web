@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "fetch-contributors": "ts-node src/utils/fetchContributors.js"
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",
