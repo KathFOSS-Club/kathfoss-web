@@ -8,6 +8,7 @@ import {
   HeroSection,
   HighlightedProjects,
   Team,
+  Contributors,
   UpcomingEvents,
 } from "./components";
 import Navbar from "./components/Navbar";
@@ -28,6 +29,9 @@ export default async function Home() {
     >
       {/* Hero Section */}
       <HeroSection />
+
+      {/* COntributors Section */}
+      <Contributors/>
 
       {/* Event Highlights */}
       <EventsHighlight />
