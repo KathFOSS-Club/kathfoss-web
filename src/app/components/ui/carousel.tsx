@@ -48,20 +48,6 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
     };
   }, []);
 
-  const handleMouseMove = (event: React.MouseEvent) => {
-    const el = slideRef.current;
-    if (!el) return;
-
-    const r = el.getBoundingClientRect();
-    xRef.current = event.clientX - (r.left + Math.floor(r.width / 2));
-    yRef.current = event.clientY - (r.top + Math.floor(r.height / 2));
-  };
-
-  const handleMouseLeave = () => {
-    xRef.current = 0;
-    yRef.current = 0;
-  };
-
   const imageLoaded = (event: React.SyntheticEvent<HTMLImageElement>) => {
     event.currentTarget.style.opacity = "1";
   };
@@ -115,8 +101,6 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
         }}
         ref={slideRef}
         onClick={() => handleSlideClick(index)}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
       >
         <Box
           sx={{
@@ -211,7 +195,6 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
                 textAlign: "center",
                 width: "100%",
                 color: "grey.300",
-
               }}
             >
               {title}
@@ -334,7 +317,7 @@ export default function Carousel({ slides }: CarouselProps) {
     if (startXRef.current === null) return;
 
     const containerWidth = containerRef.current?.clientWidth || 1;
-    const threshold = containerWidth * 0.2;
+    const threshold = containerWidth * 1;
 
     if (Math.abs(offsetXRef.current) > threshold) {
       if (offsetXRef.current > 0) {

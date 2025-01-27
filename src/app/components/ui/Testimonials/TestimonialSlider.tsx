@@ -95,7 +95,7 @@ export const TestimonialSlider = () => {
                   alt="member-image"
                   height={200}
                   width={200}
-                  style={{ margin: "auto", borderRadius: "50%" }}
+                  style={{ margin:"auto", borderRadius: "50%"}}
                 />
               </Box>
             </Box>

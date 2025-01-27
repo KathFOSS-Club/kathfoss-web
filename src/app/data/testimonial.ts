@@ -1,8 +1,8 @@
  export const testimonialData = [
     {
-      name: "Name",
-      position: "position",
-      image: "/images/Team/mem 01.png",
+      name: "Prabhash Kumar Jha",
+      position: "President",
+      image: "/images/Team/member1.png",
       description:  
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nobis in quaerat corrupti pariatur consectetur totam nam dolorum eum eius. Similique fuga ipsum perspiciatis sint iste libero error laboriosam! Hic.skjaskadkajhddkjkdjkjdfjkfjdksd",
 
@@ -10,46 +10,46 @@
     },
     
     {
-      name: "Name",
-      position: "position",
-      image: "/images/Team/mem 02.png",
+      name: "Ashish Aryal",
+      position: "Vice president",
+      image: "/images/Team/member2.png",
       description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nobis in quaerat corrupti pariatur consectetur totam nam dolorum eum eius. Similique fuga ipsum perspiciatis sint iste libero error laboriosam! Hic.",
 
 
     }
     ,{
-      name: "Name",
-      position: "position",
-      image: "/images/Team/mem 03.png",
+      name: "Priyajan Swongamikha",
+      position: "Secretary",
+      image: "/images/Team/member3.png",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nobis in quaerat corrupti pariatur consectetur totam nam dolorum eum eius. Similique fuga ipsum perspiciatis sint iste libero error laboriosam! Hic.",
     },
     {
-      name: "Name",
-      position: "position",
-      image: "/images/Team/mem 6.png",
+      name: "Sahil Dangol",
+      position: "Event Coordinator",
+      image: "/images/Team/member4.png",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nobis in quaerat corrupti pariatur consectetur totam nam dolorum eum eius. Similique fuga ipsum perspiciatis sint iste libero error laboriosam! Hic.",
     },
     {
-      name: "Name",
-      position: "position",
-      image: "/images/Team/mem 01.png",
+      name: "Nischal Shakya",
+      position: "Tech Lead",
+      image: "/images/Team/member5.png",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nobis in quaerat corrupti pariatur consectetur totam nam dolorum eum eius. Similique fuga ipsum perspiciatis sint iste libero error laboriosam! Hic.",
     },
     {
-      name: "Name",
-      position: "position",
-      image: "/images/Team/mem 03.png",
+      name: "Aashika Lamichhane",
+      position: "Designer",
+      image: "/images/Team/member6.png",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nobis in quaerat corrupti pariatur consectetur totam nam dolorum eum eius. Similique fuga ipsum perspiciatis sint iste libero error laboriosam! Hic.",
     },
     {
-      name: "Name",
-      position: "position",
-      image: "/images/Team/mem 6.png",
+      name: "Shisir Baskota",
+      position: "Media and Communications Head",
+      image: "/images/Team/member7.png",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nobis in quaerat corrupti pariatur consectetur totam nam dolorum eum eius. Similique fuga ipsum perspiciatis sint iste libero error laboriosam! Hic.",
     },

@@ -11,7 +11,7 @@ import {
   UpcomingEvents,
   
 } from "./components";
-
+import Navbar from "./components/Navbar";
 import React from "react";
 import ContactUs from "./components/ContactUs";
 import Testimonial from "./components/Testimonial";
@@ -28,9 +28,6 @@ export default async function Home() {
         scrollBehavior: "smooth",
       }}
     >
-      {/* Header */}
-      <Header />
-
       {/* Hero Section */}
       <HeroSection />
 
@@ -44,7 +41,7 @@ export default async function Home() {
       <Testimonial />
 
       {/* Team */}
-      <Team  />
+      <Team />
 
       {/* Highlighted Projects */}
       <HighlightedProjects />
