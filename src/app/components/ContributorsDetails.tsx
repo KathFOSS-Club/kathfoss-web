@@ -1,40 +1,17 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
-import axios from "axios";
+import React, { useRef } from "react";
 import { Box, Typography, IconButton } from "@mui/material";
-import { GitHub, Twitter, Language, ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
+import { GitHub, ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import Image from "next/image";
+import { Contributor } from "@/utils/fetchContributors";
 
-interface Contributor {
-  login: string;
-  avatar_url: string;
-  html_url: string;
-  contributions: number;
-  name?: string;
-  blog?: string;
-  twitter_username?: string;
+interface ContributorsDetailsProps {
+  contributors: Contributor[];
 }
 
-const ContributorsDetails = () => {
-  const [contributors, setContributors] = useState<Contributor[]>([]);
-  const [loading, setLoading] = useState(true);
+const ContributorsDetails = ({ contributors }: ContributorsDetailsProps) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const fetchContributors = async () => {
-      try {
-        const response = await axios.get("/contributors.json");
-        setContributors(response.data);
-      } catch (error) {
-        console.error("Error fetching contributors:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchContributors();
-  }, []);
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -47,10 +24,6 @@ const ContributorsDetails = () => {
       scrollContainerRef.current.scrollBy({ left: 300, behavior: "smooth" });
     }
   };
-
-  if (loading) {
-    return <Typography>Loading...</Typography>;
-  }
 
   return (
     <Box sx={{ position: "relative", width: "100%", overflow: "hidden" }}>
@@ -111,7 +84,7 @@ const ContributorsDetails = () => {
             >
               <Image
                 src={contributor.avatar_url}
-                alt={contributor.name || contributor.login}
+                alt={contributor.login}
                 width={100}
                 height={100}
                 style={{ borderRadius: "50%", border: "2px solid #64ffda" }}
@@ -126,9 +99,9 @@ const ContributorsDetails = () => {
                 fontSize: "1.1rem",
               }}
             >
-              {contributor.name || contributor.login}
+              {contributor.login}
             </Typography>
-            <Box sx={{ display: "flex", justifyContent: "center", gap: 1 }}>
+            <Box sx={{ display: "flex", justifyContent: "center" }}>
               <IconButton
                 href={contributor.html_url}
                 target="_blank"
@@ -136,24 +109,6 @@ const ContributorsDetails = () => {
               >
                 <GitHub />
               </IconButton>
-              {contributor.twitter_username && (
-                <IconButton
-                  href={`https://twitter.com/${contributor.twitter_username}`}
-                  target="_blank"
-                  sx={{ color: "#64ffda", "&:hover": { color: "#47e1a5" } }}
-                >
-                  <Twitter />
-                </IconButton>
-              )}
-              {contributor.blog && (
-                <IconButton
-                  href={contributor.blog}
-                  target="_blank"
-                  sx={{ color: "#64ffda", "&:hover": { color: "#47e1a5" } }}
-                >
-                  <Language />
-                </IconButton>
-              )}
             </Box>
           </Box>
         ))}

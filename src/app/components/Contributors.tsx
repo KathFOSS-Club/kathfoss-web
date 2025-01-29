@@ -1,10 +1,11 @@
-"use client";
-
-import React from "react";
 import { Box, Typography } from "@mui/material";
 import ContributorsDetails from "./ContributorsDetails";
+import { fetchContributors } from "@/utils/fetchContributors";
 
-const Contributors = () => {
+const Contributors = async () => {
+  // Fetch contributors data on the server
+  const contributors = await fetchContributors();
+
   return (
     <Box
       id="contributors"
@@ -24,7 +25,7 @@ const Contributors = () => {
       <Typography variant="body1" sx={{ marginBottom: 4, color: "#8892b0" }}>
         People behind the magic
       </Typography>
-      <ContributorsDetails />
+      <ContributorsDetails contributors={contributors} />
     </Box>
   );
 };
