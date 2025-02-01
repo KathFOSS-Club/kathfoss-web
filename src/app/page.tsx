@@ -11,7 +11,6 @@ import {
   Contributors,
   UpcomingEvents,
 } from "./components";
-import Navbar from "./components/Navbar";
 import React from "react";
 import ContactUs from "./components/ContactUs";
 

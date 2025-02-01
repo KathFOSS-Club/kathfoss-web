@@ -7,6 +7,28 @@ const Contributors = async () => {
   const contributors = await fetchContributors();
 
   return (
+    <Box sx={{marginTop: 8}}>
+      <Typography
+          variant="h2"
+          component="h2"
+          align="center"
+          gutterBottom
+          sx={{ fontWeight: "600", marginBottom: 3 }}
+        >
+          Contributors
+          <Typography
+            variant="h6"
+            component="h6"
+            align="center"
+            gutterBottom
+            sx={{
+              marginBottom: 3,
+              color: "#8892b0",
+            }}
+          >
+            People behind the magic
+          </Typography>
+        </Typography>
     <Box
       id="contributors"
       sx={{
@@ -16,16 +38,9 @@ const Contributors = async () => {
         textAlign: "center",
       }}
     >
-      <Typography
-        variant="h4"
-        sx={{ fontWeight: "bold", marginBottom: 2, color: "#64ffda" }}
-      >
-        Contributors
-      </Typography>
-      <Typography variant="body1" sx={{ marginBottom: 4, color: "#8892b0" }}>
-        People behind the magic
-      </Typography>
       <ContributorsDetails contributors={contributors} />
+    </Box>
+
     </Box>
   );
 };
