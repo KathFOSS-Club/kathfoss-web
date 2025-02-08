@@ -7,6 +7,14 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Image from "next/image";
 
+// JSON-like data inside the same file
+const navLinks = [
+  { label: "About Us", href: "/" },
+  { label: "Events", href: "/" },
+  { label: "Team", href: "/" },
+  { label: "Contact Us", href: "/" }
+];
+
 const Footer: React.FC = () => {
   return (
     <Box component="footer" sx={{ bgcolor: '#181818', py: 3 }}>
@@ -23,7 +31,7 @@ const Footer: React.FC = () => {
             <Typography
               variant="h6"
               component="h2"
-              sx={{ color: 'white', fontWeight: 'bold' }} // Changed color to white
+              sx={{ color: 'white', fontWeight: 'bold' }}
             >
               Navigate
             </Typography>
@@ -31,50 +39,35 @@ const Footer: React.FC = () => {
               component="nav"
               sx={{ mt: 2, display: 'flex', flexDirection: 'column', gap: 1 }}
             >
-              <Link
-                href="/"
-                underline="hover"
-                sx={{ color: 'info.main', '&:hover': { color: 'info.dark' } }}
-              >
-                About Us
-              </Link>
-              <Link
-                href="/"
-                underline="hover"
-                sx={{ color: 'info.main', '&:hover': { color: 'info.dark' } }}
-              >
-                Events
-              </Link>
-              <Link
-                href="/"
-                underline="hover"
-                sx={{ color: 'info.main', '&:hover': { color: 'info.dark' } }}
-              >
-                Team
-              </Link>
-              <Link
-                href="/"
-                underline="hover"
-                sx={{ color: 'info.main', '&:hover': { color: 'info.dark' } }}
-              >
-                Contact Us
-              </Link>
+              {navLinks.map((link, index) => (
+                <Link
+                  key={index}
+                  href={link.href}
+                  underline="hover"
+                  sx={{ color: 'info.main', '&:hover': { color: 'info.dark' } }}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </Box>
           </Box>
 
+          {/* Newsletter Section */}
           <Box sx={{ padding: 2 }}>
-      <Typography
-        variant="h3"
-        component="h3"
-        align="center"
-        gutterBottom
-        sx={{ fontWeight: "400", marginBottom: 2, color: "#64ffda" }}
-      >
-        <span style={{ color: "#fff", textTransform: "capitalize" }}>
-        Newsletter
-        </span>{" "}
-        <span style={{ color: "#87CEFA", textTransform: "capitalize" }}> Subscription</span>
-      </Typography>
+            <Typography
+              variant="h3"
+              component="h3"
+              align="center"
+              gutterBottom
+              sx={{ fontWeight: "400", marginBottom: 2, color: "#64ffda" }}
+            >
+              <span style={{ color: "#fff", textTransform: "capitalize" }}>
+                Newsletter
+              </span>{" "}
+              <span style={{ color: "#87CEFA", textTransform: "capitalize" }}>
+                Subscription
+              </span>
+            </Typography>
             <Box
               component="form"
               sx={{
@@ -107,15 +100,16 @@ const Footer: React.FC = () => {
               >
                 Subscribe
               </Button>
-                
-
-               
             </Box>
           </Box>
         </Box>
+
+        {/* Logo Section */}
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }}> 
           <Image src="/assets/logo.svg" alt="KATHFOSS Logo" width={200} height={100} /> 
         </Box>
+
+        {/* Copyright */}
         <Typography
           variant="body2"
           sx={{
