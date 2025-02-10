@@ -1,5 +1,5 @@
-import { Box, Typography, Button } from "@mui/material";
-// import Timer from "./ui/Timer/Timer";
+import { Box, Typography, Button} from "@mui/material";
+// import Timer from "./ui/Timer/Timer"; 
 
 export default function HeroSection() {
   return (
@@ -35,8 +35,10 @@ export default function HeroSection() {
       >
         “Code, Collaborate, Contribute”
       </Typography>
+
       {/* Timer Component */}
       {/* <Timer /> */}
+
       {/* About Us Section */}
       <Box id="about-us" sx={{ marginTop: "4rem" }}>
         <Typography
@@ -74,7 +76,7 @@ export default function HeroSection() {
             backgroundColor: "rgba(255, 255, 255, 0.1)",
             borderRadius: "8px",
             padding: { xs: "0.75rem", sm: "1rem" },
-            minWidth: { xs: "calc(50% - 0.75rem)", sm: "120px" },
+            minWidth: { xs: "calc(50% - 0.75rem)", sm: "140px" },
             maxWidth: { xs: "calc(50% - 0.75rem)", md: "none" },
             boxSizing: "border-box",
           }}
@@ -87,7 +89,7 @@ export default function HeroSection() {
               color: "#009FE3",
             }}
           >
-            2
+            02
           </Typography>
           <Typography
             variant="h6"
@@ -109,7 +111,7 @@ export default function HeroSection() {
             backgroundColor: "rgba(255, 255, 255, 0.1)",
             borderRadius: "8px",
             padding: { xs: "0.75rem", sm: "1rem" },
-            minWidth: { xs: "calc(50% - 0.75rem)", sm: "120px" },
+            minWidth: { xs: "calc(50% - 0.75rem)", sm: "140px" },
             maxWidth: { xs: "calc(50% - 0.75rem)", md: "none" },
             boxSizing: "border-box",
           }}
@@ -144,7 +146,7 @@ export default function HeroSection() {
             backgroundColor: "rgba(255, 255, 255, 0.1)",
             borderRadius: "8px",
             padding: { xs: "0.75rem", sm: "1rem" },
-            minWidth: { xs: "calc(50% - 0.75rem)", sm: "120px" },
+            minWidth: { xs: "calc(50% - 0.75rem)", sm: "140px" },
             maxWidth: { xs: "calc(50% - 0.75rem)", md: "none" },
             boxSizing: "border-box",
           }}
@@ -179,7 +181,7 @@ export default function HeroSection() {
             backgroundColor: "rgba(255, 255, 255, 0.1)",
             borderRadius: "8px",
             padding: { xs: "0.75rem", sm: "1rem" },
-            minWidth: { xs: "calc(50% - 0.75rem)", sm: "120px" },
+            minWidth: { xs: "calc(50% - 0.75rem)", sm: "140px" },
             maxWidth: { xs: "calc(50% - 0.75rem)", md: "none" },
             boxSizing: "border-box",
           }}
@@ -214,8 +216,7 @@ export default function HeroSection() {
             backgroundColor: "rgba(255, 255, 255, 0.1)",
             borderRadius: "8px",
             padding: { xs: "0.75rem", sm: "1rem" },
-            minWidth: { xs: "calc(50% - 0.75rem)", sm: "120px" },
-            maxWidth: { xs: "calc(50% - 0.75rem)", md: "none" },
+            minWidth: { xs: "calc(100% - 1.5rem)", sm: "140px" },
             boxSizing: "border-box",
           }}
         >
@@ -245,3 +246,4 @@ export default function HeroSection() {
     </Box>
   );
 }
+
