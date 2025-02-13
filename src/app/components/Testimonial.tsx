@@ -7,7 +7,7 @@ import Testimonialmembers from "./ui/Testimonials/Testimonialmembers";
 
 export default function Testimonial() {
   return (
-    <Box sx={{ height: "100vh", marginTop: "5vh" , marginBottom:"16rem"}}>
+    <Box sx={{ height: "120vh", marginTop: "5vh" , marginBottom:"12rem"}}>
       <Box
         sx={{
           height: "10vh",

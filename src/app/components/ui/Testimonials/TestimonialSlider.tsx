@@ -3,7 +3,7 @@ import { Box, Typography, Button } from "@mui/material";
 import Image from "next/image";
 import { testimonialData } from "@/app/data/testimonial";
 import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
+// import Autoplay from "embla-carousel-autoplay";
 import { useCallback, useState } from "react";
 
 export const TestimonialSlider = () => {
@@ -23,10 +23,10 @@ export const TestimonialSlider = () => {
     setExpanded(updatedExpanded);
   }
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: false, align: "start" },
-    [Autoplay({ delay: 4000 })]
-  );
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: false,
+    align: "start",
+  });
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -39,15 +39,16 @@ export const TestimonialSlider = () => {
     <Box
       ref={emblaRef}
       sx={{
-        height: "100vh",
+        height: "110vh",
         width: "100vw",
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: { md: "start", sm: "start" },
         margin: "0 auto",
         gap: "5vh",
+        padding: { md: "2vw", sm: "1vw" },
       }}
     >
       <Box
@@ -56,36 +57,50 @@ export const TestimonialSlider = () => {
           display: "flex",
           justifyContent: "space-evenly",
           alignItems: "center",
+          gap: { sm: "4vw", md: "4vh" },
         }}
       >
         {testimonialData.map((data, index) => (
-          <Box sx={{ flex: "0 0 40%" }} key={index}>
+          <Box
+            sx={{
+              flex: "0 0 40%",
+            }}
+            key={index}
+          >
             {/* member picture and dashicon */}
             <Box
               sx={{
                 height: "40vh",
                 width: {
-                    xs: "20rem",
-                    sm: "25rem",
-                    md: "30rem",
-                    lg: "35rem",
-                    xl: "27vw",
-                  },
+                  xs: "100vw",
+                  sm: "50vw",
+                  md: "40vw",
+                  lg: "30vw",
+                  xl: "27vw",
+                },
                 backgroundColor: "#181630",
                 display: "flex",
+
                 flexDirection: "column",
                 borderTopLeftRadius: "50px",
                 borderTopRightRadius: "50px",
-                flex: "0 0 20%",
               }}
             >
-              <Typography sx={{ marginTop: "2vh" }}>
+              <Typography
+                sx={{
+                  marginTop: "2vh",
+                  height: { md: "4vh", xs: "4vh", sm: "6vh" },
+                  width: { md: "2vw", xs: "8vw", sm: "4vw" },
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                }}
+              >
                 <Image
                   src="/images/Team/dashicons_testimonial.png"
                   height={500}
                   width={500}
                   alt="icon"
-                  style={{ height: "3.2vh", width: "1.5vw", margin: "auto" }}
+                  style={{ margin: "auto" }}
                 />
               </Typography>
 
@@ -95,7 +110,7 @@ export const TestimonialSlider = () => {
                   alt="member-image"
                   height={200}
                   width={200}
-                  style={{ margin:"auto", borderRadius: "50%"}}
+                  style={{ margin: "auto", borderRadius: "50%" }}
                 />
               </Box>
             </Box>
@@ -105,12 +120,12 @@ export const TestimonialSlider = () => {
               sx={{
                 minHeight: "40vh",
                 width: {
-                    xs: "20rem",
-                    sm: "25rem",
-                    md: "30rem",
-                    lg: "35rem",
-                    xl: "27vw",
-                  },
+                  xs: "100vw",
+                  sm: "50vw",
+                  md: "40vw",
+                  lg: "30vw",
+                  xl: "27vw",
+                },
                 backgroundColor: "white",
                 borderBottomLeftRadius: "50px",
                 borderBottomRightRadius: "50px",
@@ -173,7 +188,6 @@ export const TestimonialSlider = () => {
                         color: "black",
                         height: "2vh",
                         marginTop: "0.5vh",
-                       
                       }}
                       onClick={() => handleReadmore(index)}
                     >
@@ -201,24 +215,40 @@ export const TestimonialSlider = () => {
         ))}
       </Box>
 
-      <Box sx={{ display: "flex", gap: "1vw" }}>
+      <Box
+        sx={{
+          display: "flex",
+          gap: "2vw",
+          width: "100%",
+          height: "vh",
+          justifyContent: "center",
+        }}
+      >
         <Button
           className="embla__prev"
           onClick={scrollPrev}
-          sx={{ backgroundColor: "white", width: "6vw" }}
+          sx={{
+            backgroundColor: "white",
+            width: { md: "10vw", xs: "30vw", sm: "25vw" },
+            height: { md: "5vh", xs: "5vh", sm: "5vh" },
+            "&:hover": {},
+          }}
         >
           Previous
         </Button>
         <Button
           className="embla__next"
           onClick={scrollNext}
-          sx={{ backgroundColor: "white", width: "6vw" }}
+          sx={{
+            backgroundColor: "white",
+            width: { md: "10vw", xs: "30vw", sm: "25vw" },
+            height: { md: "5vh", xs: "5vh", sm: "5vh" },
+          }}
         >
           Next
         </Button>
       </Box>
     </Box>
-    
   );
 };
 
