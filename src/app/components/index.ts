@@ -6,6 +6,7 @@ export { default as HeroSection } from "./HeroSection";
 export {EventsHighlight} from "./EventsHighlight";
 export { default as UpcomingEvents } from "./UpcomingEvents";
 export { default as Team } from "./Team";
+export { default as Contributors } from "./Contributors";
 export { default as HighlightedProjects } from "./HighlightedProjects";
 export { default as Footer } from "./Footer";
 

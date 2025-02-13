@@ -1,14 +1,16 @@
 import Providers from "@/config/Providers";
 import "@/styles/globals.css";
-import { Poppins, Karla } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { Box } from "@mui/material";
 import StarField from "./components/ParticleAnimation/StarField";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./components/Navbar";
+
 
 const poppins = Poppins({
   variable: "--font-poppins",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  // weight: "600",
   subsets: ["latin"],
 });
 
@@ -48,9 +50,20 @@ export default async function RootLayout({
     <html lang="en" className="dark">
       <body className={`${poppins.variable} antialiased`}>
         <Providers>
-          <StarField />
+          <StarField/>
           <Box sx={{ position: "relative", zIndex: 1 }}>
             <Navbar />
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
             {children}
           </Box>
         </Providers>

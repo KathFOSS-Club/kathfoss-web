@@ -8,9 +8,9 @@ import {
   HeroSection,
   HighlightedProjects,
   Team,
+  Contributors,
   UpcomingEvents,
 } from "./components";
-import Navbar from "./components/Navbar";
 import React from "react";
 import ContactUs from "./components/ContactUs";
 
@@ -28,6 +28,9 @@ export default async function Home() {
     >
       {/* Hero Section */}
       <HeroSection />
+
+      {/* Contributors Section */}
+      <Contributors/>
 
       {/* Event Highlights */}
       <EventsHighlight />
