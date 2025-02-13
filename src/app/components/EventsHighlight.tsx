@@ -15,6 +15,7 @@ export const EventsHighlight = () => {
           textAlign: "center",
         }}
       >
+
         <Typography
           variant="h2"
           component="h2"

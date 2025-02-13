@@ -1,12 +1,14 @@
 "use client";
 import { IconArrowNarrowRight } from "@tabler/icons-react";
 import { useState, useRef, useId, useEffect } from "react";
+
 import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
 
 interface SlideData {
   title: string;
   src: string;
+
   description: string;
 }
 
@@ -50,6 +52,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
     event.currentTarget.style.opacity = "1";
   };
 
+
   const { src, title, description } = slide;
   const [isExpanded, setIsExpanded] = useState(false);
   return (
@@ -60,6 +63,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
       }}
     >
       <Box
+
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -67,6 +71,8 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
           justifyContent: "center",
           position: "relative",
           opacity: 1,
+         
+
           transition:
             "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s ease-in-out",
           width: {
@@ -90,6 +96,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
               ? "scale(0.98) rotateX(8deg)"
               : "scale(1) rotateX(0deg)",
           transformOrigin: "bottom",
+
           overflow: "hidden", // Ensure content doesn't overflow
         }}
         ref={slideRef}
@@ -103,6 +110,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
             width: "100%",
             height: "100%",
             backgroundColor: "#1D1F2F",
+
             borderRadius: "30px",
             overflow: "hidden",
             transition: "all 0.15s ease-out",
@@ -110,6 +118,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
               current === index
                 ? "translate3d(calc(var(--x) / 30), calc(var(--y) / 30), 0)"
                 : "none",
+
             display: "flex",
             flexDirection: "column",
           }}
@@ -281,6 +290,7 @@ export default function Carousel({ slides }: CarouselProps) {
     }
   };
   const handlePointerDown = (event: React.PointerEvent) => {
+
     startXRef.current = event.clientX;
     console.log(startXRef);
     offsetXRef.current = 0;
@@ -336,6 +346,7 @@ export default function Carousel({ slides }: CarouselProps) {
     <Box
       sx={{
         position: "relative",
+
         width: {
           xs: "22rem",
           sm: "30rem",
@@ -384,6 +395,7 @@ export default function Carousel({ slides }: CarouselProps) {
           top: "50%",
           left: 0,
           right: 0,
+
           display: { md: "flex", xs: "none" },
           justifyContent: "space-between",
           alignItems: "center",
