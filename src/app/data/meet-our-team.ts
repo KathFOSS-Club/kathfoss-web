@@ -117,7 +117,7 @@ export const teamMembers = {
       name: "Abhisek Dahal",
       role: "Supervisor",
       image: "/images/MeetOurTeam/project-supervisor2.jpg",
-      description: "Specialist",
+      description: "Abhisek Dahal is a former Vice President of Kathfoss and a founding director at Asteroid, where they lead innovation and strategy as well as serve as the Head of the Frontend Department. Known for their technical expertise and leadership, they are dedicated to delivering cutting-edge digital solutions that drive user satisfaction and business success.",
       socialMedia: {
         linkedin: "https://linkedin.com",
         github: "https://github.com",
@@ -139,7 +139,7 @@ export const teamMembers = {
       name: "Aayush Ghimire",
       role: "Supervisor",
       image: "/images/MeetOurTeam/project-supervisor3.jpg",
-      description: "....",
+      description: "Aayush Ghimire, an engineering undergraduate with a strong passion for UI/UX design. With over two years of experience in frontend development and more than three years of expertise in designing, and have honed skills in creating visually appealing and user-centric digital experiences. Aayush aims to continue refining his design skills while exploring new and innovative ways to enhance digital interactions.",
       socialMedia: {
         linkedin: "https://linkedin.com",
         github: "https://github.com",
@@ -195,11 +195,11 @@ export const teamMembers = {
     {
       name: "Kamal Khatri",
       role: "Executive Member",
-      image: "/images/MeetOurTeam/ram.png",
-      description: ".....s.",
+      image: "/images/MeetOurTeam/executive-member4.jpg",
+      description: "Kamal Khatri is an undergrad student who loves to build projects, breaking and learning things along the way. Currently exploring everything from neural networks to transformers.",
       socialMedia: {
-        linkedin: "https://linkedin.com",
-        github: "https://github.com",
+        linkedin: "https://www.linkedin.com/in/kamal-khatri-93b038184/",
+        github: "https://github.com/Kamal-018",
       },
     },
     {

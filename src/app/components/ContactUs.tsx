@@ -15,6 +15,7 @@ import Image from "next/image";
 import { ContactFormType, contactSchema } from "@/utils/contactSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 export default function ContactUs() {
   const {
@@ -42,8 +43,10 @@ export default function ContactUs() {
         body: JSON.stringify(data),
       });
       reset();
+
+      toast.success("Your message has been sent successfully!");
     } catch (error) {
-      console.log(error);
+      toast.error("Failed to send message. Please try again.");
     }
   };
   return (
