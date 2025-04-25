@@ -11,6 +11,7 @@ import {
   Contributors,
   UpcomingEvents,
 } from "./components";
+import ContributorsSection from "./components/ContributorsSection";
 import React from "react";
 import ContactUs from "./components/ContactUs";
 
@@ -43,6 +44,7 @@ export default async function Home() {
 
       {/* Highlighted Projects */}
       <HighlightedProjects />
+      <ContributorsSection/>
 
       {/*contact */}
       <ContactUs />
