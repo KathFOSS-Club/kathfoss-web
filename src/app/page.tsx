@@ -29,9 +29,6 @@ export default async function Home() {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Contributors Section */}
-      <Contributors/>
-
       {/* Event Highlights */}
       <EventsHighlight />
 
@@ -43,6 +40,7 @@ export default async function Home() {
 
       {/* Highlighted Projects */}
       <HighlightedProjects />
+    
 
       {/*contact */}
       <ContactUs />
