@@ -8,6 +8,8 @@ import {
   FiUsers,
   FiTarget,
   FiCalendar,
+  FiUserPlus,
+  FiUserX,
 } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
@@ -85,6 +87,15 @@ const Navbar = () => {
                     <h3 className="text-xl font-bold text-blue-400 mb-2">
                       Discover Us
                     </h3>
+                    <Link href="/Contributors" className="menu-item">
+                      <FiUsers className="text-blue-400 mt-7" />
+                      <div>
+                        <h4 className="font-medium">Contributors</h4>
+                        <p className="text-sm text-gray-400">
+                         The Team Behind this Magic
+                        </p>
+                      </div>
+                    </Link>
                     <Link href="/mission-vision" className="menu-item">
                       <FiTarget className="text-blue-400 mt-7" />
                       <div>
