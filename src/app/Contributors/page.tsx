@@ -2,7 +2,7 @@
 
 import Tilt from 'react-parallax-tilt';
 import { Box, Typography, Grid2 } from "@mui/material";
-import { teamMembers } from "../data/meet-our-team";
+
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
