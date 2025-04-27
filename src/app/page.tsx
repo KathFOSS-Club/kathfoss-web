@@ -29,9 +29,6 @@ export default async function Home() {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Contributors Section */}
-      <Contributors/>
-
       {/* Event Highlights */}
       <EventsHighlight />
 
