@@ -10,9 +10,11 @@ import {
   Team,
   Contributors,
   UpcomingEvents,
+  
 } from "./components";
 import React from "react";
 import ContactUs from "./components/ContactUs";
+import Testimonial from "./components/Testimonial";
 
 export default async function Home() {
   return (
@@ -34,6 +36,9 @@ export default async function Home() {
 
       {/* Upcoming Events */}
       <UpcomingEvents />
+
+      {/* testtimonials */}
+      <Testimonial />
 
       {/* Team */}
       <Team />
